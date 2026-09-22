@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfroEdu Stream - Entrar</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css' ) }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="login-container">
+        <img src="{{ url_for('static',filename='css/imagem/img/logo_educacao_negra.png') }}" alt="Roda de Saberes Afro-Brasileira" class="logo-img">
+
+        <form action="{{ url_for('login') }}" method="get" id="login-form">
+            <h1>AfroEdu Stream</h1>
+            <label for="usuario-login">Usuário:</label>
+            <input type="text" id="usuario-login" name="usuario" placeholder="digite um Nome de Usuário" required>
+
+            <label for="nome-login">Nome:</label>
+            <input type="text" id="login-nome" name="nome" placeholder="digite o seu nome" required>
+
+            <label for="email-login">E-mail:</label>
+            <input type="email" id="email-login" name="email" placeholder="digite o seu E-mail" required>
+
+            <label for="password-login">Senha:</label>
+            <div class="campo-senha">
+                <input type="password" id="password-login" name="senha" placeholder="Senha" required>
+                <button type="button" id="toggle-password" class="btn-olho" title="Mostrar/Ocultar Senha">👁️</button>    
+            </div>
+
+            <button type="button" id="btn-teste-login" class="btn-cadastrar btn-teste">
+                Gerar Dados de Teste
+            </button>
+
+            <div class="remenber-forgot">
+                <label for="lembrar-login">
+                    <input type="checkbox" id="lembrar-login" name="lembrar"> <span>Lembrar de mim</span>
+                </label>
+                <a href="#">Esqueceu a senha?</a>
+            </div>
+
+            <button type="submit" class="btn-cadastrar" id="btn-entrar">
+                Entrar
+            </button>
+            
+            <div class="registrar-usuario">
+                <p>Ainda não tem uma conta? <a href="#" id="cadastrar">Cadastre-se</a></p>
+            </div>
+        </form>
+    </main>
+
+    <script src="{{url_for('static')filename='Js/login.Js'}}"></script>
+</body>
+</html>

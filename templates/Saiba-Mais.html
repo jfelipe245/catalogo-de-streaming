@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Obra - Catálogo NEABI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Saiba-Mais.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="{{ url_for('catalogo') }}" class="botao-voltar">&larr; Voltar ao Catálogo</a>
+        <span class="titulo-pagina">Informações Detalhadas</span>
+    </nav>
+
+    <main class="container-detalhes">
+        
+        <section class="capa-container">
+            <img id="detalhe-img" src="{{ url_for('static', filename='css/imagem/img/logo_educacao_negra.png') }}" alt="Capa da obra selecionada">
+            <div class="botoes-acao">
+                <button id="btn-acessar" class="btn-principal">Acessar Obra / Ler</button>
+                <button id="btn-favoritos" class="btn-secundario">Adicionar ao Catálogo</button>
+            </div>
+        </section>
+
+        <section class="info-container">
+            <span id="detalhe-badge" class="badge">Livro</span>
+            <h1 id="detalhe-titulo">Quarto de Despejo: Diário de uma Favela</h1>
+            <p class="autor-diretor">Por <strong id="detalhe-autor">Carolina Maria de Jesus</strong></p>
+
+            <div class="secao-detalhe">
+                <h2>Sinopse Completa</h2>
+                <p id="detalhe-sinopse">
+                    O diário de uma mulher negra, moradora da favela do Canindé em São Paulo, que relata com crudeza e poética a dura realidade do cotidiano, a fome, o preconceito e a constante busca por sobrevivência e dignidade para criar seus filhos através da coleta de papel.
+                </p>
+            </div>
+
+            <div class="secao-detalhe">
+                <h2>Ficha Técnica e Relevância Pedagógica</h2>
+                <ul class="lista-ficha">
+                    <li><strong>Ano de Publicação / Lançamento:</strong> <span id="ficha-ano">1960</span></li>
+                    <li><strong>Categoria / Formato:</strong> <span id="ficha-formato">Literatura / Diário Autobiográfico</span></li>
+                    <li><strong>Temáticas do NEABI:</strong> Identidade Negra, Literatura Periférica, Relações de Gênero e Classe.</li>
+                    <li><strong>Indicação Escolar:</strong> Ensino Fundamental II e Ensino Médio.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; Catálogo Educacional NEABI - Promoção da Igualdade Racial e Diversidade nas Escolas.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/saiba-mais.js') }}"></script>
+</body>
+</html>
