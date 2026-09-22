@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 app.secret_key = "afroedu-streming"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:/// login.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///login.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -33,10 +33,6 @@ def inicializar_banco():
     with app.app_context():
         db.create_all()
 
-# ------------------------------
-# ROTAS DAS PAGINAS
-# ------------------------------
-
 @app.route("/")
 def home():
     return redirect(url_for("login"))
@@ -48,8 +44,7 @@ def login():
         email = request.form.get("email", "").strip()
         senha = request.form.get("senha", "")
 
-        usuario=Usuario.query.filter_by(email = email, senha = senha
-            ).first()
+        usuario=Usuario.query.filter_by(email = email, senha = senha).first()
 
         if usuario:
             session["usuario_id"] = usuario.id
@@ -68,7 +63,6 @@ def catalogo():
         return redirect(url_for("login"))
     return render_template("catalogo.html")
 
-
 @app.route("/favoritos")
 def favoritos():
     if "usuario_id" not in session:
@@ -82,31 +76,25 @@ def saiba_mais():
         return redirect(url_for("login"))
     return render_template("Saiba-Mais.html")
 
-
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect(url_for("login"))
 
-
-# ------------------------------
-# CADASTRO DE USUARIO
-# ------------------------------
-
 @app.route("/Usuarios", methods=["GET", "POST"])
 def cadastrar_usuarios():
     if request.method == "POST":
-        nome_usuario = request.form.get("Nome Usuario", "")
-        nome = request.form.get("nome", "")
-        idade = request.form.get("Idade", "")
-        cpf = request.form.get("cpf", "")
-        data_nascimento = request.form.get("Data_Nascimento", "")
-        email = request.form.get("E-mail", "")
-        telefone = request.form.get("Telefone", "")
-        senha = request.form.get("Senha", "")
-        rua = request.form.get("Rua", "")
-        bairro = request.form.get("Bairro", "")
-        endereco = request.form.get("Eendereço", request.form.get("Endereço", ""))
+        nome_usuario = request.form.get("Nome Usuario")
+        nome = request.form.get("nome")
+        idade = request.form.get("Idade")
+        cpf = request.form.get("cpf")
+        data_nascimento = request.form.get("Data_Nascimento")
+        email = request.form.get("E-mail")
+        telefone = request.form.get("Telefone")
+        senha = request.form.get("Senha")
+        rua = request.form.get("Rua")
+        bairro = request.form.get("Bairro")
+        endereco = request.form.get("Eendereço")
 
         try:
             with sqlite3.connect(cadastro) as conexao:
@@ -124,7 +112,7 @@ def cadastrar_usuarios():
 
             return redirect(url_for("login"))
 
-        except sqlite3:
+        except sqlite3.IntegrityError:
             return render_template("login.html", mensagem="E-mail ou CPF já cadastrado.")
 
     return render_template("login.html")
