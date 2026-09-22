@@ -48,6 +48,8 @@ def inicializar_banco():
             rua = db.Column(db.String(100), nullable=False)
             bairro = db.Column(db.String(100), nullable=False)
             endereco = db.Column(db.String(200), nullable=False)
+            db.session.add(Usuario)
+            db.session.commit()
 
 
 # ------------------------------
