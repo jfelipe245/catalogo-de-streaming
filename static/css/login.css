@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Sora:wght@600;700&display=swap');
 
 :root {
-    --amarelo-dourado: #E5A23B;     
-    --marrom-card: #3D2117;         
-    --marrom-input: #27130C;        
-    --azul-turquesa: #1E829B;       
-    --vermelho-terracotta: #C83B1E; 
-    --texto-creme: #F5E8D3;         
-    --bg-fundo-pagina: #110B08;     
+    --amarelo-dourado: #E5A23B;
+    --marrom-card: #3D2117;
+    --marrom-input: #27130C;
+    --azul-turquesa: #1E829B;
+    --vermelho-terracotta: #C83B1E;
+    --texto-creme: #F5E8D3;
+    --bg-fundo-pagina: #110B08;
 }
 
 * {
@@ -18,12 +18,12 @@
 }
 
 .logo-img {
-    width: 80px;                  
-    height: 80px;                 
-    border-radius: 50%;          
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--amarelo-dourado);
-    margin: 0 auto 10px auto;    
+    margin: 0 auto 10px auto;
     display: block;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -124,6 +124,7 @@ div[style*='position:relative'],
     position: relative;
     width: 100%;
 }
+
 .btn-olho {
     position: absolute;
     right: 12px;
@@ -260,4 +261,151 @@ form select:focus-visible,
         flex-direction: column;
         align-items: flex-start;
     }
+}
+
+.campo_nome_usuario {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.campo_nome_usuario label {
+    width: 150px;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.campo_nome_usuario input {
+    flex: 1;
+}
+
+.campo_nome {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.campo_nome label {
+    width: 150px;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.campo_nome input {
+    flex: 2;
+}
+
+.campo_idade {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.campo_idade label {
+    width: 150px;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.campo_idade input {
+    flex: 3;
+}
+
+.campo_data_nascimento {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.campo_data_nascimento label {
+    width: 150px;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.campo_data_nascimento input {
+    flex: 4;
+}
+
+.campo_email {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.campo_email label {
+    width: 150px;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.campo_email input {
+    flex: 5;
+}
+
+.campo_telefone {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.campo_telefone label {
+    width: 150px;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.campo_data_nascimento input[type="date"],
+.campo_telefone input[type="tel"] {
+    background-color: #3b2025;
+    color: white;
+    flex: 6;
+}
+
+.campo_bairro {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.campo_bairro label {
+    width: 150px;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.campo_bairro input {
+    flex: 7;
+}
+
+.campo_rua {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.campo_rua label {
+    width: 150px;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.campo_rua input {
+    flex: 8;
+}
+
+.campo_endereco {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.campo_endereco label {
+    width: 150px;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.campo_endereco input {
+    flex: 9;
 }
