@@ -13,44 +13,25 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 cadastro = "login.db"
 
+class Usuario(db.Model):
+    __tablename__ = "Usuarios"
+
+    id = db.Column(db.Integer, primary_key=True)
+    nome_usuario = db.Column(db.String(100), nullable=False)
+    nome = db.Column(db.String(100), nullable=False)
+    idade = db.Column(db.Integer, nullable=False)
+    cpf = db.Column(db.String(14), unique=True, nullable=False)
+    data_nascimento = db.Column(db.String(10), nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    telefone = db.Column(db.String(20))
+    senha = db.Column(db.String(100), nullable=False)
+    rua = db.Column(db.String(100), nullable=False)
+    bairro = db.Column(db.String(100), nullable=False)
+    endereco = db.Column(db.String(200), nullable=False)
+
 def inicializar_banco():
-    with sqlite3.connect(cadastro) as conexao:
-        cursor = conexao.cursor()
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS Usuarios (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nome_usuario TEXT,
-            nome TEXT NOT NULL,
-            idade INTEGER NOT NULL,
-            cpf TEXT UNIQUE NOT NULL,
-            data_nascimento TEXT NOT NULL,
-            email TEXT UNIQUE NOT NULL,
-            telefone TEXT,
-            senha TEXT NOT NULL,
-            rua TEXT NOT NULL,
-            bairro TEXT NOT NULL,
-            endereco TEXT NOT NULL
-        )
-        """)
-
-        class Usuario(db.Model):
-            __tablename__ = 'Usuarios'
-
-            id = db.Column(db.Integer, primary_key=True)
-            nome_usuario = db.Column(db.String(100))
-            nome = db.Column(db.String(100), nullable=False)
-            idade = db.Column(db.Integer, nullable=False)
-            cpf = db.Column(db.String(20), unique=True, nullable=False)
-            data_nascimento = db.Column(db.String(20), nullable=False)
-            email = db.Column(db.String(120), unique=True, nullable=False)
-            telefone = db.Column(db.String(20))
-            senha = db.Column(db.String(100), nullable=False)
-            rua = db.Column(db.String(100), nullable=False)
-            bairro = db.Column(db.String(100), nullable=False)
-            endereco = db.Column(db.String(200), nullable=False)
-            db.session.add(Usuario)
-            db.session.commit()
-
+    with app.app_context():
+        db.create_all()
 
 # ------------------------------
 # ROTAS DAS PAGINAS
@@ -150,6 +131,4 @@ def cadastrar_usuarios():
 
 if __name__ == "__main__":
     inicializar_banco()
-    db.session.add(Usuario)
-    db.session.commit()
-    app.run(debug=True, user_reloader=False) 
+    app.run(debug=True) 
