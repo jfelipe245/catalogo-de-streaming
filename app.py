@@ -33,10 +33,6 @@ def inicializar_banco():
     with app.app_context():
         db.create_all()
 
-# ------------------------------
-# ROTAS DAS PAGINAS
-# ------------------------------
-
 @app.route("/")
 def home():
     return redirect(url_for("login"))
@@ -45,11 +41,10 @@ def home():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        email = request.form.get("email", "").strip()
-        senha = request.form.get("senha", "")
+        email = request.form["email", ""].strip()
+        senha = request.form["senha", ""]
 
-        usuario=Usuario.query.filter_by(email = email, senha = senha
-            ).first()
+        usuario=Usuario.query.filter_by(email = email, senha = senha).first()
 
         if usuario:
             session["usuario_id"] = usuario.id
@@ -64,10 +59,9 @@ def login():
 
 @app.route("/catalogo")
 def catalogo():
-    if "usuario_id" not in session:
+    if(Usuario) not in session:
         return redirect(url_for("login"))
     return render_template("catalogo.html")
-
 
 @app.route("/favoritos")
 def favoritos():
@@ -82,31 +76,25 @@ def saiba_mais():
         return redirect(url_for("login"))
     return render_template("Saiba-Mais.html")
 
-
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect(url_for("login"))
 
-
-# ------------------------------
-# CADASTRO DE USUARIO
-# ------------------------------
-
 @app.route("/Usuarios", methods=["GET", "POST"])
 def cadastrar_usuarios():
     if request.method == "POST":
-        nome_usuario = request.form.get("Nome Usuario", "")
-        nome = request.form.get("nome", "")
-        idade = request.form.get("Idade", "")
-        cpf = request.form.get("cpf", "")
-        data_nascimento = request.form.get("Data_Nascimento", "")
-        email = request.form.get("E-mail", "")
-        telefone = request.form.get("Telefone", "")
-        senha = request.form.get("Senha", "")
-        rua = request.form.get("Rua", "")
-        bairro = request.form.get("Bairro", "")
-        endereco = request.form.get("Eendereço", request.form.get("Endereço", ""))
+        nome_usuario = request.form("Nome Usuario")
+        nome = request.form("nome")
+        idade = request.form("Idade")
+        cpf = request.form("cpf")
+        data_nascimento = request.form("Data_Nascimento")
+        email = request.form("E-mail")
+        telefone = request.form("Telefone")
+        senha = request.form("Senha")
+        rua = request.form("Rua")
+        bairro = request.form("Bairro")
+        endereco = request.form["Eendereço"]
 
         try:
             with sqlite3.connect(cadastro) as conexao:
