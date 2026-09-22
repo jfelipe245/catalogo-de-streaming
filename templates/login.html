@@ -21,24 +21,56 @@
         <form action="{{ url_for('login') }}" method="get" id="login-form">
             <h1>AfroEdu Stream</h1>
 
-            <label for="usuario-login">Usuário:</label>
-            <input type="text" id="usuario-login" name="usuario" placeholder="digite um Nome de Usuário" required>
+            <div class="campo_nome_usuario">
+                <label for="nome-usuario-login">Nome_Usuário:</label>
+                <input type="text" id="nome-usuario-login" name="Nome-Usuario"
+                    placeholder="digite o seu Nome de Usuário" required>
+            </div>
 
-            <label for="nome-usuario-login">Nome_Usuário:</label>
-            <input type="text" id="nome-usuario-login" name="Nome-Usuario" placeholder="digite o seu Nome de Usuário"
-                required>
+            <div class="campo_nome">
+                <label for="nome-login">Nome:</label>
+                <input type="text" id="login-nome" name="nome" placeholder="digite o seu nome" required>
+            </div>
 
-            <label for="nome-login">Nome:</label>
-            <input type="text" id="login-nome" name="nome" placeholder="digite o seu nome" required>
+            <div class="campo_idade">
+                <label for="idade-login">Idade</label>
+                <input type="number" id="login-idade" name="idade" placeholder="digite a sua idade" required>
+            </div>
 
-            <label for="email-login">E-mail:</label>
-            <input type="email" id="email-login" name="email" placeholder="digite o seu E-mail" required>
+            <div class="campo_data_nascimento">
+                <label for="data-login">data de nascimento:</label>
+                <input type="date" id="data-login" name="data" placeholder="digite a sua data de nascimento" required>
+            </div>
 
-            <label for="telefone-login">telefone:</label>
-            <input type="tel" id="telefone-login" name="telefone" placeholder="digite o seu DDD" required>
+            <div class="campo_email">
+                <label for="email-login">E-mail:</label>
+                <input type="email" id="email-login" name="email" placeholder="digite o seu E-mail" required>
+            </div>
 
-            <label for="password-login">Senha:</label>
+            <div class="campo_telefone">
+                <label for="telefone-login">telefone:</label>
+                <input type="tel" id="telefone-login" name="telefone" placeholder="digite o seu DDD" required>
+            </div>
+
+            <div class="campo_bairro">
+                <label for="login-bairro">bairro:</label>
+                <input type="text" id="bairro-login" name="bairro" placeholder="digite o nome do seu bairro" required>
+            </div>
+
+            <div class="campo_rua">
+                <label for="rua-login">rua:</label>
+                <input type="text" id="rua-login" name="rua" placeholder="digite o nome da sua rua" required>
+            </div>
+
+            <div class="campo_endereco">
+                <label for="endereco_login">endereco:</label>
+                <input type="number" id="endereco-login" name="endereco" placeholder="digite o seu numero de endereco"
+                    required>
+            </div>
+
+
             <div class="campo-senha">
+                <label for="password-login">Senha:</label>
                 <input type="password" id="password-login" name="senha" placeholder="Senha" required>
                 <button type="button" id="toggle-password" class="btn-olho" title="Mostrar/Ocultar Senha">👁️</button>
             </div>
