@@ -91,31 +91,33 @@ def cadastrar_usuarios():
         data_nascimento = request.form.get("Data_Nascimento")
         email = request.form.get("E-mail")
         telefone = request.form.get("Telefone")
-        senha = request.form.get("Senha")
         rua = request.form.get("Rua")
         bairro = request.form.get("Bairro")
         endereco = request.form.get("Eendereço")
 
-        try:
-            with sqlite3.connect(cadastro) as conexao:
-                cursor = conexao.cursor()
-                cursor.execute("""
-                    INSERT INTO Usuarios
-                    (nome_usuario, nome, idade, cpf, data_nascimento, email,
-                     telefone, senha, rua, bairro, endereco)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                """, (
-                    nome_usuario, nome, idade, cpf, data_nascimento, email,
-                    telefone, senha, rua, bairro, endereco
-                ))
-                conexao.commit()
+        usuario = Usuario(
+            nome_usuario=nome_usuario,
+            nome=nome,
+            idade=idade,
+            cpf=cpf,
+            data_nascimento=data_nascimento,
+            email=email,
+            telefone=telefone,
+            rua=rua,
+            bairro=bairro,
+            endereco=endereco
+        )
 
-            return redirect(url_for("login"))
+    try:
+        db.session.add(usuario)
+        db.session.commit()
+        
+        return redirect(url_for("login"))
 
-        except sqlite3.IntegrityError:
-            return render_template("login.html", mensagem="E-mail ou CPF já cadastrado.")
-
-    return render_template("login.html")
+    except Exception:
+        db.session.rollback()
+        return render_template('login.html', mensagem='email ou cpf ja cadastrados')
+    return render_template('login.html')
 
 if __name__ == "__main__":
     inicializar_banco()
