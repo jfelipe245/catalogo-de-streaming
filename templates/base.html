@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}Catálogo{% endblock %}</title>
-    <link rel="stylesheet" href="{{ urlfor('static', filename='css/catalogo.css') }}">
-    {% block css %}{% endblock %}
+    <title>{% block title %} afroedu steam {% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    {% block css %} {% endblock %}
 </head>
 
 <body>
 
-    {% block content %}{% endblock %}
+    {% block conteudo %} {% endblock conteudo %}
 
-    {% block js %}{% endblock %}
+    {% block js%} {% endblock %}
 
     <script src="{{ url_for('static', filename='js/catalogo.js') }}"></script>
 </body>

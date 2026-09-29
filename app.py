@@ -35,8 +35,7 @@ def inicializar_banco():
 
 @app.route("/")
 def home():
-    return redirect(url_for("login"))
-
+    return redirect(url_for("catalogo"))
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -50,18 +49,17 @@ def login():
             session["usuario_id"] = usuario.id
             session["usuario_nome"] = usuario.nome
             session["usuario_email"] = usuario.email
+    
             return redirect(url_for("catalogo"))
-
+        
         return render_template("login.html", mensagem="E-mail ou senha incorretos.")
-
+    
     return render_template("login.html")
-
 
 @app.route("/catalogo")
 def catalogo():
     if "usuario_id" not in session:
-        return redirect(url_for("login"))
-    return render_template("catalogo.html")
+        return render_template("catalogo.html")
 
 @app.route("/favoritos")
 def favoritos():
@@ -84,16 +82,17 @@ def logout():
 @app.route("/Usuarios", methods=["GET", "POST"])
 def cadastrar_usuarios():
     if request.method == "POST":
-        nome_usuario = request.form.get("Nome Usuario")
-        nome = request.form.get("nome")
-        idade = request.form.get("Idade")
-        cpf = request.form.get("cpf")
-        data_nascimento = request.form.get("Data_Nascimento")
-        email = request.form.get("E-mail")
-        telefone = request.form.get("Telefone")
-        rua = request.form.get("Rua")
-        bairro = request.form.get("Bairro")
-        endereco = request.form.get("Eendereço")
+        nome_usuario = request.form.get("Nome-Usuario", "").strip()
+        nome = request.form.get("nome", "").strip()
+        idade = request.form.get("idade")
+        cpf = request.form.get("cpf", "").strip()
+        data_nascimento = request.form.get("data")
+        email = request.form.get("email", "").strip()
+        telefone = request.form.get("telefone", "").strip()
+        bairro = request.form.get("bairro", "").strip()
+        rua = request.form.get("rua", "").strip()
+        endereco = request.form.get("endereco", "").strip()
+        senha = request.form.get("senha", "")
 
         usuario = Usuario(
             nome_usuario=nome_usuario,
@@ -102,21 +101,27 @@ def cadastrar_usuarios():
             cpf=cpf,
             data_nascimento=data_nascimento,
             email=email,
+            senha=senha,
             telefone=telefone,
             rua=rua,
             bairro=bairro,
             endereco=endereco
         )
 
-    try:
-        db.session.add(usuario)
-        db.session.commit()
-        
-        return redirect(url_for("login"))
+        try:
+            db.session.add(usuario)
+            db.session.commit()
 
-    except Exception:
-        db.session.rollback()
-        return render_template('login.html', mensagem='email ou cpf ja cadastrados')
+            session["usuario_id"] = usuario.id
+            session["usuario_nome"] = usuario.nome
+            session["usuario_email"] = usuario.email
+            return redirect(url_for("catalogo"))
+            
+            return redirect(url_for("login"))
+
+        except Exception:
+            db.session.rollback()
+            return render_template('login.html', mensagem='email ou cpf ja cadastrados')
     return render_template('login.html')
 
 if __name__ == "__main__":

@@ -1,220 +1,225 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Sora:wght@600;700&display=swap');
 
 :root {
-    --amarelo-dourado: #E5A23B;
-    --marrom-card: #3D2117;
-    --marrom-input: #27130C;
-    --azul-turquesa: #1E829B;
-    --vermelho-terracotta: #C83B1E;
-    --texto-creme: #F5E8D3;
-    --bg-fundo-pagina: #110B08;
+--amarelo-dourado: #E5A23B;
+--marrom-card: #3D2117;
+--marrom-input: #27130C;
+--azul-turquesa: #1E829B;
+--vermelho-terracotta: #C83B1E;
+--texto-creme: #F5E8D3;
+--bg-fundo-pagina: #110B08;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-}
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  }
 
 .logo-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--amarelo-dourado);
-    margin: 0 auto 10px auto;
-    display: block;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+width: 65px;
+height: 65px;
+max-width: 65px;
+max-height: 65px;
+border-radius: 50%;
+object-fit: cover;
+border: 2px solid var(--amarelo-dourado);
+margin: 0 auto 10px auto;
+display: block;
 }
 
 body {
-    background-color: var(--bg-fundo-pagina);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    color: var(--texto-creme);
+background-color: var(--bg-fundo-pagina);
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 20px;
+color: var(--texto-creme);
 }
 
 .login-container {
-    background-color: var(--marrom-card);
-    border: 1px solid var(--amarelo-dourado);
-    border-top: 6px solid var(--amarelo-dourado);
-    border-radius: 8px;
-    padding: 35px 30px;
-    width: 100%;
-    max-width: 440px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-    text-align: center;
-    position: relative;
+background-color: var(--marrom-card);
+border: 1px solid var(--amarelo-dourado);
+border-top: 6px solid var(--amarelo-dourado);
+border-radius: 8px;
+padding: 35px 30px;
+width: 100%;
+max-width: 440px;
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+text-align: center;
+position: relative;
 }
 
 .input-box {
-    display: block;
-    font-family: 'Sora', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 4px;
-    color: var(--amarelo-dourado);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+display: block;
+font-family: 'Sora', sans-serif;
+font-size: 1.5rem;
+font-weight: 700;
+text-align: center;
+margin-bottom: 4px;
+color: var(--amarelo-dourado);
+text-transform: uppercase;
+letter-spacing: 0.5px;
 }
 
 .login-container::after {
-    content: "Módulo de Acesso Acadêmico";
-    display: block;
-    font-size: 0.78rem;
-    color: var(--azul-turquesa);
-    margin-bottom: 22px;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 1px;
+content: "Módulo de Acesso Acadêmico";
+display: block;
+font-size: 0.78rem;
+color: var(--azul-turquesa);
+margin-bottom: 22px;
+text-transform: uppercase;
+font-weight: 600;
+letter-spacing: 1px;
 }
 
 form label {
-    display: block;
-    text-align: center;
-    margin-top: 14px;
-    margin-bottom: 6px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--texto-creme);
+display: block;
+text-align: center;
+margin-top: 14px;
+margin-bottom: 6px;
+font-size: 0.85rem;
+font-weight: 600;
+color: var(--texto-creme);
 }
 
 form input[type="text"],
 form input[type="number"],
 form input[type="email"],
 form input[type="password"],
+form input[type="date"],
+form input[type="tel"],
 form select {
-    width: 100%;
-    padding: 11px 14px;
-    border: 1px solid var(--amarelo-dourado);
-    border-radius: 6px;
-    font-size: 0.95rem;
-    background-color: var(--marrom-input);
-    color: var(--texto-creme);
-    text-align: center;
-    outline: none;
-    transition: all 0.2s ease;
+width: 100%;
+height: 42px;
+padding: 10px 14px;
+border: 1px solid var(--amarelo-dourado);
+border-radius: 6px;
+font-size: 0.95rem;
+background-color: var(--marrom-input);
+color: var(--texto-creme);
+text-align: left;
+outline: none;
+transition: all 0.2s ease;
 }
 
 form input::placeholder {
-    color: #A38775;
-    text-align: center;
+color: #A38775;
+text-align: left;
 }
 
 form input:focus,
 form select:focus {
-    border-color: var(--azul-turquesa);
-    box-shadow: 0 0 0 3px rgba(30, 130, 155, 0.3);
-    background-color: #1a0c08;
+border-color: var(--azul-turquesa);
+box-shadow: 0 0 0 3px rgba(30, 130, 155, 0.3);
+background-color: #1a0c08;
 }
 
 form select option {
-    background-color: var(--marrom-card);
-    color: var(--texto-creme);
+background-color: var(--marrom-card);
+color: var(--texto-creme);
 }
 
 div[style*='position:relative'],
 .campo-senha {
-    position: relative;
-    width: 100%;
+position: relative;
+width: 100%;
 }
 
 .btn-olho {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    color: #A38775;
-    transition: color 0.2s ease;
+position: absolute;
+right: 12px;
+top: 50%;
+transform: translateY(-50%);
+background: none;
+border: none;
+cursor: pointer;
+font-size: 1rem;
+color: #A38775;
+transition: color 0.2s ease;
 }
 
 .btn-olho:hover {
-    color: var(--amarelo-dourado);
+color: var(--amarelo-dourado);
 }
 
 .remenber-forgot {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 18px;
-    font-size: 0.82rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 18px;
+font-size: 0.82rem;
 }
 
 .remenber-forgot label {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin: 0;
-    font-weight: 500;
-    color: var(--texto-creme);
-    cursor: pointer;
+display: flex;
+align-items: center;
+gap: 6px;
+margin: 0;
+font-weight: 500;
+color: var(--texto-creme);
+cursor: pointer;
 }
 
 .remenber-forgot input[type="checkbox"] {
-    accent-color: var(--azul-turquesa);
-    width: 15px;
-    height: 15px;
+accent-color: var(--azul-turquesa);
+width: 15px;
+height: 15px;
 }
 
 .remenber-forgot a,
 .registrar-usuario a {
-    color: var(--azul-turquesa);
-    text-decoration: none;
-    font-weight: 700;
+color: var(--azul-turquesa);
+text-decoration: none;
+font-weight: 700;
 }
 
 .remenber-forgot a:hover,
 .registrar-usuario a:hover {
-    color: var(--amarelo-dourado);
-    text-decoration: underline;
+color: var(--amarelo-dourado);
+text-decoration: underline;
 }
 
 .btn-cadastrar {
-    width: 100%;
-    padding: 12px;
-    margin-top: 22px;
-    background-color: var(--vermelho-terracotta);
-    border: 1px solid var(--amarelo-dourado);
-    border-radius: 6px;
-    color: var(--texto-creme);
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+width: 100%;
+padding: 12px;
+margin-top: 22px;
+background-color: var(--vermelho-terracotta);
+border: 1px solid var(--amarelo-dourado);
+border-radius: 6px;
+color: var(--texto-creme);
+font-size: 0.95rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+cursor: pointer;
+transition: background-color 0.2s ease;
 }
 
 .btn-cadastrar:hover {
-    background-color: #A02B13;
+background-color: #A02B13;
 }
 
 .registrar-usuario {
-    text-align: center;
-    margin-top: 20px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(229, 162, 59, 0.2);
-    font-size: 0.82rem;
-    color: var(--texto-creme);
+text-align: center;
+margin-top: 20px;
+padding-top: 16px;
+border-top: 1px solid rgba(229, 162, 59, 0.2);
+font-size: 0.82rem;
+color: var(--texto-creme);
 }
 
-/* Botão de teste: mantém a aparência sem depender de style inline. */
+/* Botão de teste */
+
 .btn-cadastrar.btn-teste {
-    background-color: var(--azul-turquesa);
+background-color: var(--azul-turquesa);
 }
 
 .btn-cadastrar.btn-teste:hover {
-    background-color: #176B7F;
+background-color: #176B7F;
 }
 
 .btn-cadastrar:focus-visible,
@@ -223,189 +228,122 @@ form input:focus-visible,
 form select:focus-visible,
 .remenber-forgot a:focus-visible,
 .registrar-usuario a:focus-visible {
-    outline: 2px solid var(--amarelo-dourado);
-    outline-offset: 3px;
+outline: 2px solid var(--amarelo-dourado);
+outline-offset: 3px;
 }
 
+/* CAMPOS DO FORMULÁRIO */
+
+.campo_nome_usuario,
+.campo_nome,
+.campo_idade,
+.campo_data_nascimento,
+.campo_email,
+.campo_telefone,
+.campo_bairro,
+.campo_rua,
+.campo_endereco,
+.campo-senha {
+width: 100%;
+margin-bottom: 15px;
+}
+
+/* LABELS */
+
+.campo_nome_usuario label,
+.campo_nome label,
+.campo_idade label,
+.campo_data_nascimento label,
+.campo_email label,
+.campo_telefone label,
+.campo_bairro label,
+.campo_rua label,
+.campo_endereco label,
+.campo-senha label {
+display: block;
+width: 100%;
+margin: 0 0 6px 0;
+text-align: left;
+color: var(--texto-creme);
+}
+
+/* INPUTS */
+
+.campo_nome_usuario input,
+.campo_nome input,
+.campo_idade input,
+.campo_data_nascimento input,
+.campo_email input,
+.campo_telefone input,
+.campo_bairro input,
+.campo_rua input,
+.campo_endereco input,
+.campo-senha input {
+width: 100%;
+height: 42px;
+padding: 10px 14px;
+border: 1px solid var(--amarelo-dourado);
+border-radius: 6px;
+background-color: var(--marrom-input);
+color: var(--texto-creme);
+text-align: left;
+outline: none;
+}
+
+.campo_nome_usuario input::placeholder,
+.campo_nome input::placeholder,
+.campo_idade input::placeholder,
+.campo_data_nascimento input::placeholder,
+.campo_email input::placeholder,
+.campo_telefone input::placeholder,
+.campo_bairro input::placeholder,
+.campo_rua input::placeholder,
+.campo_endereco input::placeholder,
+.campo-senha input::placeholder {
+color: #A38775;
+text-align: left;
+}
+
+/* RESPONSIVIDADE */
+
 @media (max-width: 520px) {
-    body {
-        padding: 14px;
-    }
 
-    .login-container {
-        padding: 28px 20px;
-    }
 
-    .logo-img {
-        width: 70px;
-        height: 70px;
-    }
+body {
+    padding: 14px;
+}
 
-    .input-box,
-    .login-container h1 {
-        font-size: 1.3rem;
-    }
+.login-container {
+    padding: 28px 20px;
+}
 
-    .remenber-forgot {
-        gap: 12px;
-        flex-wrap: wrap;
-    }
+.logo-img {
+    width: 65px;
+    height: 65px;
+}
+
+.input-box,
+.login-container h1 {
+    font-size: 1.3rem;
+}
+
+.remenber-forgot {
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+
 }
 
 @media (max-width: 360px) {
-    .login-container {
-        padding: 24px 16px;
-    }
 
-    .remenber-forgot {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+
+.login-container {
+    padding: 24px 16px;
 }
 
-.campo_nome_usuario {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
+.remenber-forgot {
+    flex-direction: column;
+    align-items: flex-start;
 }
-
-.campo_nome_usuario label {
-    width: 150px;
-    margin-right: 15px;
-    text-align: right;
-}
-
-.campo_nome_usuario input {
-    flex: 1;
-}
-
-.campo_nome {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.campo_nome label {
-    width: 150px;
-    margin-right: 15px;
-    text-align: right;
-}
-
-.campo_nome input {
-    flex: 2;
-}
-
-.campo_idade {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.campo_idade label {
-    width: 150px;
-    margin-right: 15px;
-    text-align: right;
-}
-
-.campo_idade input {
-    flex: 3;
-}
-
-.campo_data_nascimento {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.campo_data_nascimento label {
-    width: 150px;
-    margin-right: 15px;
-    text-align: right;
-}
-
-.campo_data_nascimento input {
-    flex: 4;
-}
-
-.campo_email {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.campo_email label {
-    width: 150px;
-    margin-right: 15px;
-    text-align: right;
-}
-
-.campo_email input {
-    flex: 5;
-}
-
-.campo_telefone {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.campo_telefone label {
-    width: 150px;
-    margin-right: 15px;
-    text-align: right;
-}
-
-.campo_data_nascimento input[type="date"],
-.campo_telefone input[type="tel"] {
-    background-color: #3b2025;
-    color: white;
-    flex: 6;
-}
-
-.campo_bairro {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.campo_bairro label {
-    width: 150px;
-    margin-right: 15px;
-    text-align: right;
-}
-
-.campo_bairro input {
-    flex: 7;
-}
-
-.campo_rua {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.campo_rua label {
-    width: 150px;
-    margin-right: 15px;
-    text-align: right;
-}
-
-.campo_rua input {
-    flex: 8;
-}
-
-.campo_endereco {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.campo_endereco label {
-    width: 150px;
-    margin-right: 15px;
-    text-align: right;
-}
-
-.campo_endereco input {
-    flex: 9;
 }
