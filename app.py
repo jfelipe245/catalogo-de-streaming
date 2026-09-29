@@ -68,8 +68,8 @@ def favoritos():
     return render_template("meus_favoritos.html")
 
 
-@app.route("/Saiba-Mais")
-def Saiba_Mais():
+@app.route("/saiba-mais")
+def saiba_mais():
     if "usuario_id" not in session:
         return redirect(url_for("login"))
     return render_template("Saiba-Mais.html")
