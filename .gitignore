@@ -1,0 +1,4 @@
+joaoenv
+__pycache/
+*.db
+.env
