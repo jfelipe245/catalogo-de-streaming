@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{% block title %} afroedu steam {% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/catalogo.css') }}">
+
+    <img src="{{ url_for('static', filename='css/catalogo.css') }}" alt="Logo-AfroEduSteam" class="site-logo"
+        width="50" height="50">
+    <span>AfroEduSteam</span>
     {% block css %} {% endblock %}
 </head>
 
@@ -25,10 +28,10 @@
     <main>
         {% block conteudo %} {% endblock conteudo %}
     </main>
-    
-    
+
+
     {% block js%} {% endblock js %}
-        
+
     <footer>
         <p>&copy; Catálogo Educacional NEABI - Promoção da Igualdade Racial e Diversidade nas Escolas.</p>
     </footer>

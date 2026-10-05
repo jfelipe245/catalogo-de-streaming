@@ -9,8 +9,10 @@
 {% block conteudo %}
 
 <main class="login-container">
-    <img src="{{ url_for('static',filename='css/imagem/img/logo_educacao_negra.png') }}"
-        alt="Roda de Saberes Afro-Brasileira" class="logo-img" width="65" height="65">
+    <div class="auth-header">
+        <img src="{{ url_for('static',filename='css/imagem/img/logo_educacao_negra.png') }}"
+        alt="Roda de Saberes Afro-Brasileira" class="logo-img" width="80" height="80">
+    </div>
 
     <form action="{{ url_for('cadastrar_usuarios') }}" method="post" id="login-form">
         <h1>AfroEdu Stream</h1>
