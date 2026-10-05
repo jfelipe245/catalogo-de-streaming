@@ -2,12 +2,16 @@
 
 {% block title %} home {% endblock title %}
 
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/catalogo.css') }}">
+{% endblock css %}
+
 {% block conteudo %}
 
-<nav class="navbar">
+
     <div class="site-logo">
         <img src="{{ url_for('static', filename='css/imagem/img/logo_educacao_negra.png') }}" alt="Logo do Catálogo"
-            class="site-logo">
+            class="site-logo"height="65" width="65">
     </div>
 
     <div class="nav-links">
@@ -15,16 +19,13 @@
         <a hr="{{ url_for('logout') }}" class="nav-links-item btn-sair">sair</a>
     </div>
 
-    <ul class="nav-list">
-        <li><button type="button" class="filter-btn" data-filter="todos">todos</button></li>
-        <li><button type="button" class="filter-btn" data-filter="livro">livro</button></li>
-        <li><button type="button" class="filter-btn" data-filter="filme">filme</button></li>
-        <li><button type="button" class="filter-btn" data-filter="documentario">documentario</button></li>
-        <li><button type="button" class="filter-btn" data-filter="curta-metragem">curta-metragem</button></li>
-        <li><button type="button" class="filter-btn" data-filter="sobre-nosso-site">sobre nosso site</button></li>
-        <li><button type="button" class="filter-btn" data-filter="sobre-mim">sobre mim</button></li>
-        <li><button type="button" class="filter-btn" data-filter="agradecimentos">agradecimentos</button></li>
-    </ul>
+    <div class="filtros">
+        <button type="button" class="filter-btn" data-filter="todos">todos</button>
+        <button type="button" class="filter-btn" data-filter="livro">livro</button>
+        <button type="button" class="filter-btn" data-filter="filme">filme</button>
+        <button type="button" class="filter-btn" data-filter="documentario">documentario</button>
+        <button type="button" class="filter-btn" data-filter="curta-metragem">curta-metragem</button>
+    </div>
 </nav>
 
 <header>
@@ -44,7 +45,7 @@
         <span class="badge">Documentário</span>
         <strong class="titulo">Pedagogia do Abandono</strong>
         <p class="detalhes"><strong>Gênero:</strong> Documentário Educacional</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/pedagogia do abandono.jpg') }}"
+        <img src="{{ url_for('static', filename='css/imagem/img/pedagogia_do_abandono.jpg') }}"
             alt="Pedagogia do Abandono">
         <p class="Autor"><strong>Autor/Diretor:</strong> Produção oficial</p>
         <p class="descricao"><strong>Descrição:</strong> Crítica aos modelos educacionais autoritários que negligenciam
@@ -65,7 +66,7 @@
         <span class="badge">Livro</span>
         <strong class="titulo">ABC do Racismo: ou Uma alfabetização ao racismo</strong>
         <p class="detalhes"><strong>Gênero:</strong> Educação / Sociologia</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/abc.jpg') }}" alt="ABC do Racismo">
+        <img src="{{ url_for('static', filename='css/imagem/img/a_b_c.jpg') }}" alt="ABC do Racismo">
         <p class="Autor"><strong>Autor/Diretor:</strong> Kabengele Munanga</p>
         <p class="descricao"><strong>Descrição:</strong> Explica de forma acessível os fundamentos históricos e sociais
             do racismo.</p>
@@ -85,7 +86,7 @@
         <span class="badge">Filme</span>
         <strong class="titulo">Cabeça de Negro</strong>
         <p class="detalhes"><strong>Gênero:</strong> Drama / Ficção</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/cabeca de negro.jpg') }}" alt="Cabeça de Negro">
+        <img src="{{ url_for('static', filename='css/imagem/img/cabeca_de_negro.jpg') }}" alt="Cabeça de Negro">
         <p class="Autor"><strong>Autor/Diretor:</strong> Julio Bressane</p>
         <p class="descricao"><strong>Descrição:</strong> Narra a trajetória de um jovem negro periférico, abordando
             estereótipos e barreiras estruturais.</p>
@@ -126,7 +127,7 @@
         <span class="badge">Livro</span>
         <strong class="titulo">Crítica da Estrutura da Escola</strong>
         <p class="detalhes"><strong>Gênero:</strong> Pedagogia / Educação</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/critica da escola.jpg') }}"
+        <img src="{{ url_for('static', filename='css/imagem/img/critica_da_escola.jpg') }}"
             alt="Crítica da Estrutura da Escola">
         <p class="Autor"><strong>Autor/Diretor:</strong> Vitor Henrique Paro</p>
         <p class="descricao"><strong>Descrição:</strong> Analisa a organização hierárquica e burocrática da escola
@@ -168,7 +169,7 @@
         <span class="badge">Livro</span>
         <strong class="titulo">Discriminação Estética</strong>
         <p class="detalhes"><strong>Gênero:</strong> Direito / Sociologia</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/discriminacao estetica.png') }}"
+        <img src="{{ url_for('static', filename='css/imagem/img/discriminacao_estetica.png') }}"
             alt="Discriminação Estética">
         <p class="Autor"><strong>Autor/Diretor:</strong> Adilson José Moreira et al.</p>
         <p class="descricao"><strong>Descrição:</strong> Aborda como julgamentos baseados na aparência estão ligados ao
@@ -189,7 +190,7 @@
         <span class="badge">Documentário</span>
         <strong class="titulo">Quando Sinto que Já Sei</strong>
         <p class="detalhes"><strong>Gênero:</strong> Documentário Educacional</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/quando sinto que ja sei.jpg') }}"
+        <img src="{{ url_for('static', filename='css/imagem/img/quando_sinto_que_ja_sei.jpg') }}"
             alt="Quando Sinto que Já Sei">
         <p class="Autor"><strong>Autor/Diretor:</strong> Simone André</p>
         <p class="descricao"><strong>Descrição:</strong> Mostra experiências de educação alternativa no Brasil,
@@ -210,7 +211,7 @@
         <span class="badge">Livro</span>
         <strong class="titulo">Educação Brasileira: Estrutura e Sistema</strong>
         <p class="detalhes"><strong>Gênero:</strong> História da Educação</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/educacao brasileira.jpg') }}"
+        <img src="{{ url_for('static', filename='css/imagem/img/educacao_brasileira.jpg') }}"
             alt="Educação Brasileira: Estrutura e Sistema">
         <p class="Autor"><strong>Autor/Diretor:</strong> Dermeval Saviani</p>
         <p class="descricao"><strong>Descrição:</strong> Obra referência que explica a organização, políticas e desafios
@@ -231,7 +232,7 @@
         <span class="badge">Livro / Coletânea</span>
         <strong class="titulo">Escolas em Luta</strong>
         <p class="detalhes"><strong>Gênero:</strong> Movimentos Sociais / Educação</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/escolas em luta.jpg') }}" alt="Escolas em Luta">
+        <img src="{{ url_for('static', filename='css/imagem/img/escolas_em_luta.jpg') }}" alt="Escolas em Luta">
         <p class="Autor"><strong>Autor/Diretor:</strong> Vários autores</p>
         <p class="descricao"><strong>Descrição:</strong> Reúne relatos e análises sobre resistência e lutas coletivas em
             escolas públicas.</p>
@@ -251,7 +252,7 @@
         <span class="badge">Livro</span>
         <strong class="titulo">Infâncias Negras: Vivências e lutas por uma vida justa</strong>
         <p class="detalhes"><strong>Gênero:</strong> Antropologia / Educação</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/infancias negras.jpg') }}" alt="Infâncias Negras">
+        <img src="{{ url_for('static', filename='css/imagem/img/infancias_negras.jpg') }}" alt="Infâncias Negras">
         <p class="Autor"><strong>Autor/Diretor:</strong> Nilma Lino Gomes e Marlene de Araújo</p>
         <p class="descricao"><strong>Descrição:</strong> Discute a realidade de crianças negras e a importância de uma
             educação identitária.</p>
@@ -312,7 +313,7 @@
         <span class="badge">Filme / Documentário</span>
         <strong class="titulo">Nunca Me Sonharam</strong>
         <p class="detalhes"><strong>Gênero:</strong> Documentário Social</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/nunca me sonharam.jpg') }}" alt="Nunca Me Sonharam">
+        <img src="{{ url_for('static', filename='css/imagem/img/nunca_me_sonharam.jpg') }}" alt="Nunca Me Sonharam">
         <p class="Autor"><strong>Autor/Diretor:</strong> Dandara Mariana</p>
         <p class="descricao"><strong>Descrição:</strong> Narra trajetórias de mulheres negras que romperam barreiras
             sociais e educacionais.</p>
@@ -332,7 +333,7 @@
         <span class="badge">Livro</span>
         <strong class="titulo">O Movimento Negro Educador</strong>
         <p class="detalhes"><strong>Gênero:</strong> Educação / Sociologia</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/o movimento negro.jpg') }}" alt="o movimento negro">
+        <img src="{{ url_for('static', filename='css/imagem/img/o_movimento_negro.jpg') }}" alt="o movimento negro">
         <p class="Autor"><strong>Autor/Diretor:</strong> Nilma Lino Gomes</p>
         <p class="descricao"><strong>Descrição:</strong> Analisa como o movimento negro é agente fundamental na produção
             de saberes e igualdade.</p>
@@ -352,7 +353,7 @@
         <span class="badge">Livro</span>
         <strong class="titulo">O Negro no Brasil de Hoje</strong>
         <p class="detalhes"><strong>Gênero:</strong> Sociologia / Cultura</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/o negro no brasil de hoje.jpg') }}"
+        <img src="{{ url_for('static', filename='css/imagem/img/o_negro_no_brasil_de_hoje.jpg') }}"
             alt="O Negro no Brasil de Hoje">
         <p class="Autor"><strong>Autor/Diretor:</strong> Kabengele Munanga, Nilma Lino Gomes</p>
         <p class="descricao"><strong>Descrição:</strong> Panorama sobre a presença, história e desafios da população
@@ -373,7 +374,7 @@
         <span class="badge">Curta-metragem</span>
         <strong class="titulo">Pé de Chinelo</strong>
         <p class="detalhes"><strong>Gênero:</strong> Curta-metragem / Drama</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/pe de chinelo.jpg') }}" alt="Pé de Chinelo">
+        <img src="{{ url_for('static', filename='css/imagem/img/pe_de_chinelo.jpg') }}" alt="Pé de Chinelo">
         <p class="Autor"><strong>Autor/Diretor:</strong> Cátia Cardoso</p>
         <p class="descricao"><strong>Descrição:</strong> Conta a história de avó e neto em comunidade periférica,
             mostrando vínculos como resistência.</p>
@@ -393,7 +394,7 @@
         <span class="badge">Livro</span>
         <strong class="titulo">A Produção do Fracasso Escolar</strong>
         <p class="detalhes"><strong>Gênero:</strong> Psicologia Educacional</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/a rebeldia.jpg') }}"
+        <img src="{{ url_for('static', filename='css/imagem/img/a_rebeldia.jpg') }}"
             alt="A Produção do Fracasso Escolar">
         <p class="Autor"><strong>Autor/Diretor:</strong> Maria Helena Souza Patto</p>
         <p class="descricao"><strong>Descrição:</strong> Mostra como o sistema educacional acaba contribuindo para o
@@ -414,7 +415,7 @@
         <span class="badge">Livro</span>
         <strong class="titulo">Pedagogia do Oprimido</strong>
         <p class="detalhes"><strong>Gênero:</strong> Pedagogia Crítica</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/pedagogia do oprimido.jpg') }}"
+        <img src="{{ url_for('static', filename='css/imagem/img/pedagogia_do_oprimido.jpg') }}"
             alt="Pedagogia do Oprimido">
         <p class="Autor"><strong>Autor/Diretor:</strong> Paulo Freire</p>
         <p class="descricao"><strong>Descrição:</strong> Obra fundamental da educação crítica, defendendo o ensino como
@@ -435,7 +436,7 @@
         <span class="badge">Documentário</span>
         <strong class="titulo">Pro Dia Nascer Feliz</strong>
         <p class="detalhes"><strong>Gênero:</strong> Documentário Social</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/pro dia nascer feliz.jpg') }}"
+        <img src="{{ url_for('static', filename='css/imagem/img/pro_dia_nascer_feliz.jpg') }}"
             alt="Pro Dia Nascer Feliz">
         <p class="Autor"><strong>Autor/Diretor:</strong> João Jardim e Walter Salles</p>
         <p class="descricao"><strong>Descrição:</strong> Acompanha a realidade de estudantes de diferentes classes,
@@ -456,7 +457,7 @@
         <span class="badge">Livro</span>
         <strong class="titulo">Psicologia e Ideologia</strong>
         <p class="detalhes"><strong>Gênero:</strong> Psicologia Escolar</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/psicologia e ideologia.jpg') }}"
+        <img src="{{ url_for('static', filename='css/imagem/img/psicologia_e_ideologia.jpg') }}"
             alt="Psicologia e Ideologia">
         <p class="Autor"><strong>Autor/Diretor:</strong> Maria Helena Souza Patto</p>
         <p class="descricao"><strong>Descrição:</strong> Questiona o uso da psicologia na escola tradicional e a
@@ -477,7 +478,7 @@
         <span class="badge">Livro</span>
         <strong class="titulo">Sem Perder a Raiz</strong>
         <p class="detalhes"><strong>Gênero:</strong> Identidade / Educação</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/sem perder a raiz.webp') }}" alt="Sem Perder a Raiz">
+        <img src="{{ url_for('static', filename='css/imagem/img/sem_perder_a_raiz.webp') }}" alt="Sem Perder a Raiz">
         <p class="Autor"><strong>Autor/Diretor:</strong> Nilma Lino Gomes</p>
         <p class="descricao"><strong>Descrição:</strong> Discute a importância do corpo e do cabelo na identidade negra.
         </p>
@@ -518,7 +519,7 @@
         <span class="badge">Livro</span>
         <strong class="titulo">Superando o Racismo na Escola</strong>
         <p class="detalhes"><strong>Gênero:</strong> Pedagogia Antirracista</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/superando o racismo na escola.webp') }}"
+        <img src="{{ url_for('static', filename='css/imagem/img/superando_o_racismo_na_escola.webp') }}"
             alt="Superando o Racismo na Escola">
         <p class="Autor"><strong>Autor/Diretor:</strong> Kabengele Munanga</p>
         <p class="descricao"><strong>Descrição:</strong> Propostas práticas para desconstruir estereótipos racistas no
@@ -539,7 +540,7 @@
         <span class="badge">Livro</span>
         <strong class="titulo">Ensinando a Transgredir</strong>
         <p class="detalhes"><strong>Gênero:</strong> Pedagogia Engajada</p>
-        <img src="{{ url_for('static', filename='css/imagem/img/ensinando a transgredir.webp') }}"
+        <img src="{{ url_for('static', filename='css/imagem/img/ensinando_a_transgredir.webp') }}"
             alt="Ensinando a Transgredir">
         <p class="Autor"><strong>Autor/Diretor:</strong> bell hooks</p>
         <p class="descricao"><strong>Descrição:</strong> Transforma a sala de aula em um espaço de liberdade e
@@ -659,9 +660,8 @@
 
 </main>
 
-<footer>
-    <p class="visite-loja-entretenimento-academico">&copy; 2023 Catálogo de Entretenimento. Todos os direitos
-        reservados.</p>
-</footer>
-
 {% endblock conteudo %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/catalogo.js') }}"></script>
+{% endblock scripts %}

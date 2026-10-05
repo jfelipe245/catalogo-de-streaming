@@ -2,11 +2,15 @@
 
 {% block title %} tela de login {% endblock title %}
 
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock css %}
+
 {% block conteudo %}
 
 <main class="login-container">
     <img src="{{ url_for('static',filename='css/imagem/img/logo_educacao_negra.png') }}"
-        alt="Roda de Saberes Afro-Brasileira" class="logo-img" width="50" height="50">
+        alt="Roda de Saberes Afro-Brasileira" class="logo-img" width="65" height="65">
 
     <form action="{{ url_for('cadastrar_usuarios') }}" method="post" id="login-form">
         <h1>AfroEdu Stream</h1>
@@ -91,3 +95,7 @@
 </main>
 
 {% endblock conteudo %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+{% endblock js %}

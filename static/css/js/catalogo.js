@@ -460,11 +460,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
             return;
         }
+        
+        function adicionar_favoritos(titulo, categoria, genero){
+            fetch('\adicionar_favoritos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `titulo=${encodeURIComponent(titulo)}&categoria=${encodeURIComponent(categoria)}&genero=${encodeURIComponent(genero)}`
+            })
+            .then(response => {
+                if (!response.ok) {
+                    alert('adicionar aos favoritos com sucesso');
+                    window.location.reload();
+                } else{
+                    alert('erro ao adicionar aos favoritos');
+                }
+            });
+        }
 
+        function remover_favoritos(id_do_favorito, elemento_botao){
+            fetch(`\remover_favoritos/${id_do_favorito}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+        }
+            })
+            ,then(response => {
+                if (!response.ok) {
+                    const card = elemento_botao.closest('.card') || elemento_botao.closest('article');
+                    if (card) {
+                        card.style.display = 'none';
+                        console.log('Item removido com sucesso do catálogo.');
+                    }
+                } else{
+                    alert('erro ao remover dos favoritos');
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao remover dos favoritos:', error);
+                alert('Ocorreu um erro ao remover dos favoritos. Por favor, tente novamente mais tarde.');
+            });
+        }
 
         favoritos.push(titulo);
-
-
+        
         if (salvar_Favoritos(favoritos)) {
 
             alert(

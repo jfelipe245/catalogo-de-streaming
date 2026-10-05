@@ -3,17 +3,16 @@
 {% block conteudo %} saiba mais {% endblock title %}
 
 {% block conteudo %}
-<nav class="navbar">
     <div class="logo-container">
         <img src="{{ url_for('static', filename='css/imagem/img/logo_educacao_negra.png') }}" alt="Logo do Catálogo"
-            class="site-logo">
+            class="site-logo" width="65" height="65">
         <span class="logo-texto">AfroEdu Favoritos</span>
     </div>
     <ul class="nav-list">
         <li><a href="{{ url_for('catalogo') }}" class="nav-link">Voltar ao Catálogo</a></li>
         <li><a href="{{ url_for('logout') }}" class="nav-link">Sair</a></li>
     </ul>
-</nav>
+
 
 <!-- CABEÇALHO DA PÁGINA -->
 <header class="header-favoritos">
@@ -27,8 +26,4 @@
     <!-- Os cards favoritados no localStorage serão inseridos dinamicamente aqui pelo JavaScript -->
 </main>
 
-<!-- RODAPÉ -->
-<footer>
-    <p>&copy; 2026 Catálogo de Entretenimento. Todos os direitos reservados.</p>
-</footer>
 {% block conteudo %}

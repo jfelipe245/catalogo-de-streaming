@@ -2,17 +2,17 @@
 
 {% block title %} saiba mais {% endblock title %}
 
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/saiba_mais.css') }}">
+{% endblock css %}
+
 {% block conteudo %}
-<nav class="navbar">
-    <a href="{{ url_for('catalogo') }}" class="botao-voltar">&larr; Voltar ao Catálogo</a>
-    <span class="titulo-pagina">Informações Detalhadas</span>
-</nav>
 
 <main class="container-detalhes">
 
     <section class="capa-container">
         <img id="detalhe-img" src="{{ url_for('static', filename='css/imagem/img/logo_educacao_negra.png') }}"
-            alt="Capa da obra selecionada">
+            alt="Capa da obra selecionada" width="65" height="65">
         <div class="botoes-acao">
             <button id="btn-acessar" class="btn-principal">Acessar Obra / Ler</button>
             <button id="btn-favoritos" class="btn-secundario">Adicionar ao Catálogo</button>
@@ -48,7 +48,8 @@
 
 </main>
 
-<footer>
-    <p>&copy; Catálogo Educacional NEABI - Promoção da Igualdade Racial e Diversidade nas Escolas.</p>
-</footer>
 {% endblock conteudo%}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/saiba_mais.js') }}"></script>
+{% endblock js %}
