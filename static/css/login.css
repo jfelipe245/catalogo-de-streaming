@@ -1,0 +1,532 @@
+/* =========================================================
+   AFROEDU STREAM - TELA DE LOGIN
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap');
+
+
+/* =========================================================
+   CORES
+   ========================================================= */
+
+:root {
+    --dourado: #E5A23B;
+    --dourado-claro: #F3C15D;
+
+    --marrom-fundo: #24150F;
+    --marrom-card: #4A291C;
+    --marrom-input: #5A3424;
+
+    --vermelho: #C83B1E;
+    --vermelho-hover: #E04B28;
+
+    --turquesa: #1E829B;
+    --turquesa-hover: #29A5BF;
+
+    --creme: #F5E8D3;
+    --texto-secundario: #CDB9A5;
+
+    --borda: rgba(229, 162, 59, 0.55);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(229, 162, 59, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(30, 130, 155, 0.10),
+            transparent 30%
+        ),
+        var(--marrom-fundo);
+
+    color: var(--creme);
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+
+/* =========================================================
+   CONTAINER PRINCIPAL
+   ========================================================= */
+
+.login-container {
+    width: 100%;
+    max-width: 600px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo-img {
+    width: 85px;
+    height: 85px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 3px solid var(--dourado);
+
+    margin-bottom: 15px;
+
+    box-shadow:
+        0 0 0 5px rgba(229, 162, 59, 0.08),
+        0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+#login-form h1 {
+    font-family: 'Sora', sans-serif;
+
+    font-size: 2.4rem;
+
+    margin-bottom: 8px;
+
+    background: linear-gradient(
+        90deg,
+        var(--dourado),
+        var(--dourado-claro),
+        var(--turquesa)
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+#login-form {
+    margin-top: 20px;
+
+    background: rgba(74, 41, 28, 0.92);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.40);
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+
+#login-form > label {
+    display: block;
+
+    color: var(--creme);
+
+    font-size: 0.95rem;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+
+    margin-top: 16px;
+}
+
+
+/* =========================================================
+   CAMPOS
+   ========================================================= */
+
+#login-form > input,
+#login-form input[type="text"],
+#login-form input[type="email"],
+#login-form input[type="number"],
+#login-form input[type="date"],
+#login-form input[type="tel"],
+#login-form input[type="password"] {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    border-radius: 9px;
+
+    border: 1px solid rgba(229, 162, 59, 0.55);
+
+    background-color: var(--marrom-input);
+
+    color: var(--creme);
+
+    font-family: inherit;
+
+    font-size: 0.9rem;
+
+    outline: none;
+
+    transition: 0.25s ease;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
+
+#login-form input::placeholder {
+    color: #C5AD9A;
+}
+
+
+/* =========================================================
+   FOCO NOS CAMPOS
+   ========================================================= */
+
+#login-form input:focus {
+    border-color: var(--dourado);
+
+    box-shadow:
+        0 0 0 3px rgba(229, 162, 59, 0.15);
+
+    background-color: #643A27;
+}
+
+
+/* =========================================================
+   CAMPO DE SENHA
+   ========================================================= */
+
+.campo-senha {
+    position: relative;
+
+    width: 100%;
+}
+
+
+.campo-senha input {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 50px 0 15px;
+
+    border-radius: 9px;
+
+    border: 1px solid rgba(229, 162, 59, 0.55);
+
+    background-color: var(--marrom-input);
+
+    color: var(--creme);
+
+    outline: none;
+
+    font-family: inherit;
+}
+
+
+.campo-senha input:focus {
+    border-color: var(--dourado);
+
+    box-shadow:
+        0 0 0 3px rgba(229, 162, 59, 0.15);
+}
+
+
+/* =========================================================
+   BOTÃO DO OLHO
+   ========================================================= */
+
+.btn-olho {
+    position: absolute;
+
+    right: 10px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--dourado);
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   BOTÃO GERAR DADOS
+   ========================================================= */
+
+.btn-teste {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 11px;
+
+    border: 1px solid var(--turquesa);
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--turquesa);
+
+    font-family: inherit;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.btn-teste:hover {
+    background-color: var(--turquesa);
+
+    color: white;
+}
+
+
+/* =========================================================
+   LEMBRAR / ESQUECEU SENHA
+   ========================================================= */
+
+.remenber-forgot {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 18px 0;
+
+    font-size: 0.82rem;
+}
+
+
+.remenber-forgot label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--texto-secundario);
+
+    cursor: pointer;
+}
+
+
+.remenber-forgot input[type="checkbox"] {
+    accent-color: var(--dourado);
+}
+
+
+.remenber-forgot a {
+    color: var(--turquesa);
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+
+.remenber-forgot a:hover {
+    color: var(--turquesa-hover);
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   BOTÃO ENTRAR
+   ========================================================= */
+
+#btn-entrar {
+    width: 100%;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background-color: var(--vermelho);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+    box-shadow:
+        0 5px 15px rgba(200, 59, 30, 0.25);
+}
+
+
+#btn-entrar:hover {
+    background-color: var(--vermelho-hover);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(200, 59, 30, 0.35);
+}
+
+
+/* =========================================================
+   CADASTRO
+   ========================================================= */
+
+.registrar-usuario {
+    text-align: center;
+
+    margin-top: 22px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(229, 162, 59, 0.25);
+}
+
+
+.registrar-usuario p {
+    color: var(--texto-secundario);
+
+    font-size: 0.9rem;
+}
+
+
+.registrar-usuario a {
+    color: var(--turquesa);
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.registrar-usuario a:hover {
+    color: var(--turquesa-hover);
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+
+    .login-container {
+        max-width: 100%;
+    }
+
+
+    .logo-img {
+        width: 70px;
+        height: 70px;
+    }
+
+
+    #login-form h1 {
+        font-size: 2rem;
+    }
+
+
+    #login-form {
+        padding: 22px 18px;
+    }
+
+
+    .remenber-forgot {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    #login-form h1 {
+        font-size: 1.7rem;
+    }
+
+
+    #login-form {
+        padding: 18px 14px;
+    }
+
+
+    #login-form > input,
+    #login-form input[type="text"],
+    #login-form input[type="email"],
+    #login-form input[type="number"],
+    #login-form input[type="date"],
+    #login-form input[type="tel"],
+    #login-form input[type="password"],
+    .campo-senha input {
+        height: 45px;
+    }
+}
