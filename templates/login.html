@@ -14,7 +14,7 @@
         alt="Roda de Saberes Afro-Brasileira" class="logo-img" width="80" height="80">
     </div>
 
-    <form action="{{ url_for('cadastrar_usuarios') }}" method="post" id="login-form">
+    <form action="{{ url_for('cadastrar_Usuario') }}" method="post" id="login-form">
         <h1>AfroEdu Stream</h1>
 
         <div class="campo_nome_usuario">
@@ -75,10 +75,6 @@
             <button type="button" id="toggle-password" class="btn-olho" title="Mostrar/Ocultar Senha">👁️</button>
         </div>
 
-        <button type="button" id="btn-teste-login" class="btn-cadastrar btn-teste">
-            Gerar Dados de Teste
-        </button>
-
         <div class="remenber-forgot">
             <label for="lembrar-login">
                 <input type="checkbox" id="lembrar-login" name="lembrar"> <span>Lembrar de mim</span>
@@ -91,7 +87,7 @@
         </button>
 
         <div class="registrar-usuario">
-            <p>Ainda não tem uma conta? <a href="{{ url_for('cadastrar_usuarios') }}" id="cadastrar">Cadastre-se</a></p>
+            <p>Ainda não tem uma conta? <a href="{{ url_for('cadastrar_Usuario') }}" id="cadastrar">Cadastre-se</a></p>
         </div>
     </form>
 </main>

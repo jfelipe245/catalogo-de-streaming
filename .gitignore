@@ -2,3 +2,4 @@ joaoenv
 __pycache/
 *.db
 .env
+venv/

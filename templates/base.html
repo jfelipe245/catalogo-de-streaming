@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -5,35 +6,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %} afroedu steam {% endblock %}</title>
+    <title>{% block title %}AfroEdu Stream{% endblock %}</title>
 
-    <img src="{{ url_for('static', filename='css/catalogo.css') }}" alt="Logo-AfroEduSteam" class="site-logo"
-        width="50" height="50">
-    <span>AfroEduSteam</span>
-    {% block css %} {% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
 </head>
 
 <body>
 
-    <nav>
-        <h1>AfroEduSteam</h1>
-        <ul>
+    {% if session.get('usuario_id') %}
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='css/imagem/img/logo_educacao_negra.png') }}"
+                alt="Logo AfroEdu Stream" class="site-logo" width="50" height="50">
+            <span>AfroEdu Stream</span>
+        </div>
+
+        <ul class="nav-list">
             <li><a href="{{ url_for('catalogo') }}">Catálogo</a></li>
             <li><a href="{{ url_for('meus_favoritos') }}">Meus Favoritos</a></li>
             <li><a href="{{ url_for('saiba_mais') }}">Saiba Mais</a></li>
             <li><a href="{{ url_for('logout') }}">Sair</a></li>
         </ul>
     </nav>
+    {% endif %}
+<div class="pagina">
+    {% block conteudo %}{% endblock %}
+</div>
 
-    <main>
-        {% block conteudo %} {% endblock conteudo %}
-    </main>
-
-
-    {% block js%} {% endblock js %}
+    {% block js %}{% endblock %}
 
     <footer>
-        <p>&copy; Catálogo Educacional NEABI - Promoção da Igualdade Racial e Diversidade nas Escolas.</p>
+        <p>
+            &copy; Catálogo Educacional NEABI -
+            Promoção da Igualdade Racial e Diversidade nas Escolas.
+        </p>
     </footer>
 
 </body>
