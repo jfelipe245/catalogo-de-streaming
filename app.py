@@ -155,38 +155,29 @@ def logout():
 
 @app.route('/catalogo')
 def catalogo():
-    if 'usuario_id' not in session:
-        return redirect(url_for('login'))
     return render_template('catalogo.html', nome=session.get('usuario_nome'))
 
 @app.route('/meus_favoritos')
 def meus_favoritos():
-    if 'usuario_id' not in session:
-        return redirect(url_for('login'))
-    favoritos = Favorito.query.filter_by(usuario_id=session['usuario_id']).all()   
-    return render_template('meus_favoritos.html', favoritos=favoritos)
+    
+    return render_template('meus_favoritos.html')
 
 @app.route('/adicionar_favoritos', methods=['POST'])
 def adicionar_favoritos():
-    if 'usuario_id' not in session:
-        return redirect(url_for('login'))
-
     titulo = request.form.get('titulo')
     categoria = request.form.get('categoria')
     genero = request.form.get('genero')
 
-    novo_favorito = Favorito(usuario_id=session['usuario_id'], titulo=titulo, categoria=categoria, genero=genero)
-    db.session.add(novo_favorito)
+
+    db.session.addn()
     db.session.commit()
-    return redirect(url_for('catalogo', Favorito=novo_favorito))
+    return redirect(url_for('catalogo'))
 
 @app.route('/remover_favoritos', methods=['POST'])
 def remover_favoritos():
-    if 'usuario_id' not in session:
-        return redirect(url_for('login'))
-
-    favorito = Favorito.query.get_or_404('favorito_id')
-    if favorito and favorito.Usuario_id == session['usuario_id']:
+    favorito_id = request.form.get('favorito_id')
+    favorito = Favorito.query.get(favorito_id)
+    if favorito:
         db.session.delete(favorito)
         db.session.commit()
 
@@ -194,9 +185,7 @@ def remover_favoritos():
 
 @app.route('/saiba-mais')
 def saiba_mais():
-    if 'usuario_id' not in session:
-        return redirect(url_for('login'))
-    return render_template('saiba_mais.html')
+    return render_template('Saiba-Mais.html')
 
 
 if __name__ == '__main__':

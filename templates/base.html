@@ -1,17 +1,15 @@
-
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>{% block title %}AfroEdu Stream{% endblock %}</title>
-
+    <title>Document</title>
 {% block css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-{% endblock %}
+{% endblock css %}
 </head>
+
+{% block conteudo %}
 
 <body>
 
@@ -32,10 +30,9 @@
     </nav>
     {% endif %}
 <div class="pagina">
-    {% block conteudo %}{% endblock %}
+
 </div>
 
-    {% block js %}{% endblock %}
 
     <footer>
         <p>
@@ -44,6 +41,11 @@
         </p>
     </footer>
 
+{% endblock conteudo %}
+
+{% block js %}
+     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+{% endblock js %}
 </body>
 
 </html>

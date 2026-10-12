@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
-{% block conteudo %} saiba mais {% endblock title %}
+{% block title %}Meus Favoritos{% endblock %}
+
+{% block css %}
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/meus-favoritos.css') }}">
+{% endblock %}
 
 {% block conteudo %}
     <div class="logo-container">
@@ -8,12 +12,6 @@
             class="site-logo" width="65" height="65">
         <span class="logo-texto">AfroEdu Favoritos</span>
     </div>
-    <ul class="nav-list">
-        <li><a href="{{ url_for('catalogo') }}" class="nav-link">Voltar ao Catálogo</a></li>
-        <li><a href="{{ url_for('logout') }}" class="nav-link">Sair</a></li>
-    </ul>
-
-
 <!-- CABEÇALHO DA PÁGINA -->
 <header class="header-favoritos">
     <strong>Minha Coleção Pessoal</strong>
@@ -26,4 +24,8 @@
     <!-- Os cards favoritados no localStorage serão inseridos dinamicamente aqui pelo JavaScript -->
 </main>
 
-{% block conteudo %}
+{% endblock conteudo %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/meus_favoritos.js') }}"></script>
+{% endblock js %}

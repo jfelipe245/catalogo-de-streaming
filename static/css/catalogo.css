@@ -1,451 +1,770 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
+/* =====================================================
+   AFROEDU STREAM — CATÁLOGO
+   Visual compacto, organizado e responsivo
+   ===================================================== */
+
+:root {
+    --fundo: #0f0e13;
+    --card: #19171f;
+    --card-hover: #211d27;
+    --vermelho: #e50914;
+    --vermelho-hover: #b91c1c;
+    --dourado: #ca8a04;
+    --amarelo: #facc15;
+    --texto: #f3f4f6;
+    --texto-suave: #9ca3af;
+    --borda: #302b37;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: radial-gradient(circle at 10% 20%, rgba(185, 28, 28, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(202, 138, 4, 0.15) 0%, transparent 40%),
-                #0f0e13;
-    background-attachment: fixed;
-    color: #f3f4f6;
-    line-height: 1.6;
+html {
+    scroll-behavior: smooth;
 }
 
-/* =========================================================
-   DOCUMENTAÇÃO: NAVBAR COM LOGO NO TOPO E BOTÕES ABAIXO
-   ========================================================= */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 105%;
-    background-color: rgba(15, 14, 19, 0.95);
-    backdrop-filter: blur(8px);
-    color: #ffffff;
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--texto);
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(185, 28, 28, 0.13),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(202, 138, 4, 0.10),
+            transparent 40%
+        ),
+        var(--fundo);
+    background-attachment: fixed;
+    line-height: 1.55;
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* =====================================================
+   CABEÇALHO E LOGO
+   ===================================================== */
+
+.catalogo-header {
+    width: 100%;
+    min-height: 76px;
+    padding: 12px 5%;
     display: flex;
-    flex-direction: column;           /* COLOCA A LOGO NO TOPO E OS BOTÕES ABAIXO */
-    justify-content: center;
-    align-items: center;               /* CENTRALIZA TUDO NO MEIO DA TELA */
-    padding: 12px 20px;
-    gap: 12px;                         /* ESPAÇO ENTRE A LOGO E A LISTA DE BOTÕES */
-    border-bottom: 3px solid #e50914;  /* Linha inferior vermelha */
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
-    z-index: 1000;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    background: rgba(15, 14, 19, 0.97);
+    border-bottom: 2px solid var(--vermelho);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--amarelo);
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.logo-area img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--dourado);
+}
+
+.user-nav {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.nav-pill {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 22px;
+    border: 1px solid var(--borda);
+    color: var(--texto);
+    background: #1c1921;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 700;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.nav-pill:hover {
+    background: #30212a;
+    border-color: var(--vermelho);
+}
+
+.nav-pill.sair {
+    color: #fff;
+    background: #8f151d;
+    border-color: #8f151d;
+}
+
+/* Compatibilidade com o cabeçalho antigo */
+
+.navbar {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: rgba(15, 14, 19, 0.97);
+    border-bottom: 2px solid var(--vermelho);
+    z-index: 10;
 }
 
 .site-logo {
-    width: 50px;
-    height: 50px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #ca8a04;
+    border: 2px solid var(--dourado);
+}
+
+.site-logo-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-list {
-    list-style: none;
     display: flex;
-    gap: 15px;
-    flex-wrap: wrap;                   /* Garante que os botões não quebrem em telas menores */
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 7px;
+    list-style: none;
 }
 
-/* Estilo dos Botões de Filtro */
+/* =====================================================
+   FILTROS
+   ===================================================== */
+
+.filtros-container {
+    width: min(100% - 32px, 1200px);
+    margin: 24px auto 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+}
+
+.btn-filtro,
 .filter-btn {
-    background: transparent;
-    border: 2px solid transparent;
+    padding: 8px 14px;
+    border: 1px solid #393440;
+    border-radius: 22px;
+    background: #1c1921;
     color: #e5e7eb;
     font-family: inherit;
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     font-weight: 600;
-    padding: 6px 14px;
-    border-radius: 20px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background 0.2s, border-color 0.2s;
 }
 
+.btn-filtro:hover,
 .filter-btn:hover {
-    color: #ffffff;
-    background-color: rgba(229, 9, 20, 0.2);
-    border-color: rgba(229, 9, 20, 0.4);
+    border-color: var(--vermelho);
+    background: #302027;
+    color: #fff;
 }
 
+.btn-filtro.ativo,
 .filter-btn.active {
-    background-color: #e50914;
-    color: #ffffff;
-    border-color: #e50914;
-    box-shadow: 0 2px 10px rgba(229, 9, 20, 0.4);
+    background: var(--vermelho);
+    border-color: var(--vermelho);
+    color: #fff;
 }
 
-header {
-    text-align: center;
-    padding: 40px 20px;
-    max-width: 850px;
-    margin: 110px auto 10px auto;
+/* =====================================================
+   PESQUISA
+   ===================================================== */
+
+#pesquisa {
+    flex: 1 1 260px;
+    min-width: 0;
+    max-width: 430px;
+    padding: 11px 16px;
+
+    border: 1px solid #393440;
+    border-radius: 24px;
+    outline: none;
+
+    background: #1f1d24;
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.85rem;
 }
 
-header strong {
-    color: #ca8a04; 
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-}
-
-header h1 {
-    font-size: 2.3rem;
-    font-weight: 800;
-    color: #ffffff;
-    margin: 12px 0 20px 0;
-    line-height: 1.2;
-}
-
-header p {
+#pesquisa::placeholder {
     color: #9ca3af;
-    font-size: 1.05rem;
-    margin-bottom: 25px;
+}
+
+#pesquisa:focus {
+    border-color: var(--vermelho);
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.15);
 }
 
 .container-pesquisa {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    max-width: 580px;
-    margin: 0 auto;
+    gap: 9px;
+    width: 100%;
+    max-width: 560px;
+    margin: 18px auto 0;
 }
 
-#pesquisa {
-    flex: 1;
-    padding: 14px 22px;
-    font-size: 0.95rem;
-    border: 2px solid #374151;
-    border-radius: 50px;
-    outline: none;
-    background-color: #1f1d24;
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.2s ease;
-}
-
-#pesquisa:focus {
-    border-color: #e50914; 
-    box-shadow: 0 0 0 4px rgba(229, 9, 20, 0.25);
+.container-pesquisa #pesquisa {
+    max-width: none;
 }
 
 #botao-pesquisa {
-    background-color: #e50914;
-    color: #ffffff;
+    padding: 10px 18px;
     border: none;
-    padding: 0 28px;
-    font-size: 0.95rem;
+    border-radius: 24px;
+    background: var(--vermelho);
+    color: #fff;
+    font-family: inherit;
     font-weight: 700;
-    border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
-    transition: all 0.2s ease;
 }
 
 #botao-pesquisa:hover {
-    background-color: #b91c1c;
-    transform: translateY(-2px);
+    background: var(--vermelho-hover);
 }
 
-.grid-container {
-    display: grid !important;
-    width: 100%;
-    grid-template-columns: repeat(5, 1fr); 
-    gap: 24px; 
-    max-width: 1400px; 
-    margin: 20px auto 40px auto;
-    padding: 0 24px;
-    box-sizing: border-box;
+/* =====================================================
+   INTRODUÇÃO DO CATÁLOGO
+   ===================================================== */
+
+.catalogo-intro,
+body > header:not(.catalogo-header) {
+    width: min(100% - 32px, 850px);
+    margin: 22px auto 25px;
+    text-align: center;
+    padding: 10px;
 }
+
+.catalogo-intro strong,
+body > header:not(.catalogo-header) strong {
+    color: var(--dourado);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.catalogo-intro h1,
+body > header:not(.catalogo-header) h1 {
+    margin-top: 10px;
+    color: #fff;
+    font-size: clamp(1.35rem, 2.5vw, 2rem);
+    line-height: 1.35;
+    font-weight: 800;
+}
+
+/* =====================================================
+   GRADE PRINCIPAL DOS 30 CARDS
+   IMPORTANTE: O HTML ATUAL USA .grid-cards
+   ===================================================== */
+
+.grid-cards,
+.grid-container {
+    display: grid;
+
+    /* Largura controlada para os cards não ficarem gigantes */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    width: min(100% - 40px, 1240px);
+    margin: 22px auto 42px;
+    padding: 0;
+    gap: 16px;
+
+    align-items: stretch;
+    justify-content: center;
+}
+
+/* =====================================================
+   CARDS
+   ===================================================== */
 
 .card {
     display: flex;
     flex-direction: column;
-    height: auto;
-    min-height: 100%;
-    overflow: visible;
-    padding: 15px;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+
+    padding: 12px;
+    overflow: hidden;
+
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-top: 3px solid var(--dourado);
+    border-radius: 12px;
+
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 
 .card:hover {
-    transform: translateY(-8px) scale(1.02);
-    border-top-color: #e50914; /* Muda para vermelho vibrante no hover */
-    box-shadow: 0 15px 30px rgba(229, 9, 20, 0.25);
+    transform: translateY(-4px);
+    background: var(--card-hover);
+    border-top-color: var(--vermelho);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.32);
+}
+
+/* =====================================================
+   IMAGENS DOS CARDS
+   ===================================================== */
+
+.grid-cards > .card > img,
+.grid-container > .card > img {
+    display: block;
+    width: 100%;
+
+    /* Mantém as capas proporcionais */
+    aspect-ratio: 3 / 4;
+    height: auto;
+    max-height: 245px;
+
+    object-fit: cover;
+    object-position: center;
+
+    margin: 0 0 11px;
+    border-radius: 8px;
+    background: #24202a;
+}
+
+/* =====================================================
+   CONTEÚDO INTERNO
+   ===================================================== */
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    flex: 1 0 auto;
+    min-width: 0;
 }
 
 .card .badge {
+    display: inline-block;
     align-self: flex-start;
-    background-color: rgba(202, 138, 4, 0.2);
-    color: #facc15; /* Amarelo vivo */
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.7rem;
+    max-width: 100%;
+
+    padding: 4px 8px;
+    margin-bottom: 4px;
+
+    border: 1px solid rgba(250, 204, 21, 0.25);
+    border-radius: 18px;
+
+    background: rgba(202, 138, 4, 0.15);
+    color: var(--amarelo);
+
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(250, 204, 21, 0.3);
+    letter-spacing: 0.3px;
+    overflow-wrap: anywhere;
 }
 
-.card h2, .card .titulo {
-    font-size: 0.98rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 8px;
-    line-height: 1.35;
-    max-height: none !important; 
-    overflow: visible !important;
-    white-space: normal;
-    overflow-wrap: break-word; 
-}
-
-.card img {
+.card h2,
+.card h3,
+.card .titulo {
     width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    object-position:center;
-    border-radius: 8px;
-    margin: 0 auto 10px auto;
-    display: block;
+    margin: 0 0 5px;
+
+    color: #fff;
+    font-size: 0.91rem;
+    font-weight: 700;
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+.card .autor,
+.card .Autor {
+    color: #d1d5db;
+    font-size: 0.75rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
 }
 
 .card p {
-    font-size: 0.8rem;
+    margin: 0 0 5px;
     color: #d1d5db;
-    margin-bottom: 4px;
+    font-size: 0.77rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
 }
 
 .card .descricao {
-    font-size: 0.78rem;
-    color: #9ca3af;
-    margin-bottom: 8px;
-    line-height: 1.4;
-    max-height: 3.9em; 
-    overflow: hidden;
-}
-
-.card .detalhes {
+    color: var(--texto-suave);
     font-size: 0.75rem;
-    color: #6b7280;
-    border-top: 1px solid #2e2a35;
-    padding-top: 8px;
+    line-height: 1.5;
     margin-top: 2px;
 }
 
+.card .detalhes {
+    padding-top: 7px;
+    margin-top: 3px;
+    border-top: 1px solid var(--borda);
+
+    color: #a1a1aa;
+    font-size: 0.70rem;
+    line-height: 1.5;
+}
+
+/* =====================================================
+   BOTÕES DOS CARDS
+   O HTML ATUAL USA .card-actions e .btn-acao
+   ===================================================== */
+
+.card-actions,
 .card-acoes {
-    margin-top: auto; 
     display: flex;
     flex-direction: column;
-    gap: 6px;
-}
+    gap: 7px;
 
-.card button {
     width: 100%;
-    padding: 9px;
+    margin-top: auto;
+    padding-top: 12px;
+}
+
+.card .btn-acao,
+.card-actions button,
+.card-acoes button,
+.card button {
+    display: block;
+    width: 100%;
+    min-width: 0;
+
+    padding: 9px 7px;
     border: none;
-    border-radius: 8px;
-    font-size: 0.78rem;
+    border-radius: 7px;
+
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.72rem;
     font-weight: 700;
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
     cursor: pointer;
-    letter-spacing: 0.3px;
-    transition: all 0.2s ease-in-out;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+
+    transition: filter 0.2s, transform 0.2s;
 }
 
+.card .btn-acao:hover,
+.card-actions button:hover,
+.card-acoes button:hover,
 .card button:hover {
-    filter: brightness(1.18);
+    filter: brightness(1.15);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
-.card .Saiba-Mais, .card .saiba-mais {
+/* Link Saiba Mais */
+
+.card .btn-info,
+.card .Saiba-Mais a,
+.card .saiba-mais a {
+    display: block;
+    width: 100%;
+    padding: 8px;
+
+    border: 1px solid rgba(250, 204, 21, 0.35);
+    border-radius: 7px;
+
+    background: rgba(202, 138, 4, 0.08);
+    color: var(--amarelo);
+
     text-align: center;
-    margin-top: 6px;
-    font-size: 0.75rem;
-}
-
-.card .Saiba-Mais a, .card .saiba-mais a {
-    color: #facc15;
     text-decoration: none;
+    font-size: 0.74rem;
     font-weight: 700;
+
+    transition: background 0.2s, color 0.2s;
 }
 
-.card .Saiba-Mais a:hover, .card .saiba-mais a:hover {
-    color: #e50914;
+.card .btn-info:hover,
+.card .Saiba-Mais a:hover,
+.card .saiba-mais a:hover {
+    background: var(--dourado);
+    color: #fff;
 }
+
+.card .Saiba-Mais,
+.card .saiba-mais {
+    width: 100%;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* =====================================================
+   CORES DOS BOTÕES — LIVROS
+   ===================================================== */
 
 .ler-catalogo-Livro {
-    background-color: #2563eb; /* Azul Vibrante Educativo */
-    color: #ffffff;
+    background: #2563eb;
 }
 
 .adicionar-catalogo-Livro {
-    background-color: #ca8a04; /* Dourado/Amarelo Ancestral */
-    color: #ffffff;
+    background: #a87508;
 }
 
 .remover-catalogo-Livro {
-    background-color: #dc2626; /* Vermelho Alerta */
-    color: #ffffff;
+    background: #b91c1c;
 }
 
-/* --- BOTÕES PARA FILMES --- */
+/* =====================================================
+   CORES DOS BOTÕES — FILMES
+   ===================================================== */
+
 .assistir-catalogo-Filme {
-    background-color: #059669; /* Verde Esmeralda NEABI */
-    color: #ffffff;
+    background: #047857;
 }
 
 .adicionar-catalogo-Filme {
-    background-color: #ca8a04; /* Dourado/Amarelo Ancestral */
-    color: #ffffff;
+    background: #a87508;
 }
 
 .remover-catalogo-Filme {
-    background-color: #dc2626; /* Vermelho Alerta */
-    color: #ffffff;
+    background: #b91c1c;
 }
 
-/* --- BOTÕES PARA SÉRIES E DOCUMENTÁRIOS --- */
+/* =====================================================
+   CORES DOS BOTÕES — DOCUMENTÁRIOS E SÉRIES
+   ===================================================== */
+
 .assistir-catalogo-Documentario,
 .assistir-catalogo-documentario,
 .assistir-catalogo-Serie-Documentario,
 .assistir-catalogo-serie-documentario {
-    background-color: #0891b2; /* Azul Turquesa / Mídia */
-    color: #ffffff;
+    background: #087e96;
 }
 
 .adicionar-catalogo-Documentario,
 .adicionar-catalogo-documentario,
 .adicionar-catalogo-Serie-Documentario,
 .adicionar-catalogo-serie-documentario {
-    background-color: #ca8a04; /* Dourado/Amarelo Ancestral */
-    color: #ffffff;
+    background: #a87508;
 }
 
 .remover-catalogo-Documentario,
 .remover-catalogo-documentario,
 .remover-catalogo-Serie-Documentario,
 .remover-catalogo-serie-documentario {
-    background-color: #dc2626; /* Vermelho Alerta */
-    color: #ffffff;
+    background: #b91c1c;
 }
-/* =========================================================
-   6. RODAPÉ ESTILIZADO
-   ========================================================= */
+
+/* =====================================================
+   RODAPÉ
+   ===================================================== */
+
 footer {
+    width: 100%;
+    padding: 25px 16px;
+    margin-top: 35px;
+
+    background: #08070a;
+    border-top: 2px solid var(--vermelho);
+    color: var(--texto-suave);
+
     text-align: center;
-    padding: 35px;
-    background-color: #08070a;
-    color: #9ca3af;
-    border-top: 3px solid #e50914;
-    font-size: 0.9rem;
-    margin-top: 50px;
+    font-size: 0.82rem;
 }
 
-/* =========================================================
-   AJUSTES FINAIS E RESPONSIVIDADE
-   ========================================================= */
+/* =====================================================
+   ACESSIBILIDADE
+   ===================================================== */
 
-.site-logo-img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.filter-btn:focus-visible,
-#botao-pesquisa:focus-visible,
-.card button:focus-visible,
-.card a:focus-visible {
-    outline: 2px solid #facc15;
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--amarelo);
     outline-offset: 3px;
 }
 
-.card button:active,
-#botao-pesquisa:active {
-    transform: translateY(0);
-}
+/* =====================================================
+   RESPONSIVIDADE — NOTEBOOKS
+   ===================================================== */
 
-@media (max-width: 1200px) {
+@media (max-width: 1100px) {
+    .grid-cards,
     .grid-container {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media (max-width: 900px) {
-    .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
-        padding: 0 18px;
-    }
-
-    header {
-        margin-top: 120px;
-    }
-}
-
-@media (max-width: 650px) {
-    .navbar {
-        padding: 10px 12px;
-        gap: 8px;
-    }
-
-    .nav-list {
-        gap: 6px;
-    }
-
-    .filter-btn {
-        font-size: 0.8rem;
-        padding: 5px 10px;
-    }
-
-    header {
-        padding: 30px 16px;
-        margin-top: 125px;
-    }
-
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    header p {
-        font-size: 0.95rem;
-    }
-
-    .container-pesquisa {
-        flex-direction: column;
-    }
-
-    #pesquisa,
-    #botao-pesquisa {
-        width: 100%;
-        min-height: 46px;
-    }
-
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: calc(100% - 32px);
         gap: 14px;
-        padding: 0 12px;
-    }
-
-    .card {
-        padding: 11px;
     }
 }
 
-@media (max-width: 420px) {
+/* =====================================================
+   RESPONSIVIDADE — TABLETS
+   ===================================================== */
+
+@media (max-width: 760px) {
+    .catalogo-header {
+        padding: 12px 16px;
+    }
+
+    .grid-cards,
     .grid-container {
-        grid-template-columns: 1fr;
-        max-width: 360px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: calc(100% - 24px);
+        gap: 12px;
+    }
+
+    .grid-cards > .card > img,
+    .grid-container > .card > img {
+        max-height: 220px;
+    }
+
+    .filtros-container {
+        width: calc(100% - 24px);
+        gap: 7px;
+    }
+
+    .catalogo-intro {
+        margin-top: 20px;
+    }
+}
+
+/* =====================================================
+   RESPONSIVIDADE — CELULARES
+   ===================================================== */
+
+@media (max-width: 480px) {
+    .catalogo-header {
+        justify-content: center;
+    }
+
+    .logo-area {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .user-nav {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .filtros-container {
+        flex-direction: row;
+    }
+
+    .btn-filtro,
+    .filter-btn {
+        padding: 7px 10px;
+        font-size: 0.74rem;
+    }
+
+    #pesquisa {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+
+    .grid-cards,
+    .grid-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        width: calc(100% - 20px);
+        margin-top: 16px;
     }
 
     .card {
-        padding: 14px;
+        padding: 8px;
+        border-radius: 9px;
+    }
+
+    .grid-cards > .card > img,
+    .grid-container > .card > img {
+        max-height: 180px;
+        border-radius: 6px;
+    }
+
+    .card h2,
+    .card h3,
+    .card .titulo {
+        font-size: 0.80rem;
+    }
+
+    .card .autor,
+    .card .Autor,
+    .card p {
+        font-size: 0.70rem;
+    }
+
+    .card .btn-acao,
+    .card-actions button,
+    .card-acoes button,
+    .card button {
+        padding: 8px 5px;
+        font-size: 0.66rem;
+    }
+
+    .card .btn-info,
+    .card .Saiba-Mais a,
+    .card .saiba-mais a {
+        font-size: 0.68rem;
+    }
+}
+
+/* Celulares extremamente estreitos */
+
+@media (max-width: 320px) {
+    .grid-cards,
+    .grid-container {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 280px;
+    }
+
+    .grid-cards > .card > img,
+    .grid-container > .card > img {
+        max-height: 260px;
+    }
+}
+
+/* Respeita a preferência por menos animações */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
     }
 }
