@@ -11,10 +11,15 @@
 <!-- CABEÇALHO COM LINKS DE NAVEGAÇÃO -->
 <header class="catalogo-header">
     <div class="logo-area">
-        <img src="{{ url_for('static', filename='css/imagem/img/logo_educacao_negra.png') }}" width="45"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/logo_do_site/logo_educacao_negra.png') }}" width="80" height="80"
             alt="Logo AfroEdu">
         <span>AfroEdu Stream</span>
     </div>
+</header>
+
+<header class="catalogo-intro">
+    <strong>Catálogo de livros, filmes e Documentários Educacionais</strong>
+    <h1>Uma seleção diversificada de livros, filmes e séries que abordam temas educacionais, sociais e culturais.</h1>
 </header>
 
 <!-- FILTROS E PESQUISA -->
@@ -23,21 +28,19 @@
     <button type="button" class="btn-filtro" data-filter="livro">Livros</button>
     <button type="button" class="btn-filtro" data-filter="filme">Filmes</button>
     <button type="button" class="btn-filtro" data-filter="documentario">Documentários</button>
-    <button type="button" class="btn-filtro" data-filter="curta-metragem">Curtas</button>
+    <button type="button" class="btn-filtro" data-filter="curta-metragem">Curtas metragens</button>
+    <button type="button" class="btn-filtro" data-filter="series">series</button>
+    <button type="button" class="btn-filtro" data-filter="musica_de_protesto">musica de protesto</button>
     <input type="text" id="pesquisa" placeholder="Buscar por título, autor ou gênero...">
 </section>
 
-<header class="catalogo-intro">
-    <strong>Catálogo de livros, filmes e Documentários Educacionais</strong>
-    <h1>Uma seleção diversificada de livros, filmes e séries que abordam temas educacionais, sociais e culturais.</h1>
-</header>
 
 <!-- GRADE DE CARDS: 30 ELEMENTOS -->
 <main class="grid-cards" id="card-container">
 
     <!-- CARD 1: Documentário -->
     <article class="card" data-category="documentario" data-genero="Documentário Educacional">
-        <img src="{{ url_for('static', filename='css/imagem/img/pedagogia_do_abandono.jpg') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/documentarios/pedagogia_do_abandono.jpg') }}"
             alt="Pedagogia do Abandono">
 
         <div class="card-content">
@@ -60,7 +63,8 @@
 
     <!-- CARD 2: Livro -->
     <article class="card" data-category="livro" data-genero="Educação / Sociologia">
-        <img src="{{ url_for('static', filename='css/imagem/img/a_b_c.jpg') }}" alt="ABC do Racismo">
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/a_b_c.jpg') }}" 
+        alt="ABC do Racismo">
 
         <div class="card-content">
             <span class="badge genero-badge">Livro</span>
@@ -81,7 +85,8 @@
 
     <!-- CARD 3: Filme -->
     <article class="card" data-category="filme" data-genero="Drama / Ficção">
-        <img src="{{ url_for('static', filename='css/imagem/img/cabeca_de_negro.jpg') }}" alt="Cabeça de Negro">
+        <img src="{{ url_for('static', filename='css/image/img/tipos/filmes/cabeca_de_negro.jpg') }}" 
+        alt="Cabeça de Negro">
 
         <div class="card-content">
             <span class="badge genero-badge">Filme</span>
@@ -102,7 +107,7 @@
 
     <!-- CARD 4: Livro -->
     <article class="card" data-category="livro" data-genero="Comunicação / Sociologia">
-        <img src="{{ url_for('static', filename='css/imagem/img/vozes-negras-1.jpg') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/vozes-negras-1.jpg') }}"
             alt="Vozes Negras na Comunicação">
 
         <div class="card-content">
@@ -124,7 +129,7 @@
 
     <!-- CARD 5: Livro -->
     <article class="card" data-category="livro" data-genero="Pedagogia / Educação">
-        <img src="{{ url_for('static', filename='css/imagem/img/critica_da_escola.jpg') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/critica_da_escola.jpg') }}"
             alt="Crítica da Estrutura da Escola">
 
         <div class="card-content">
@@ -145,7 +150,7 @@
 
     <!-- CARD 6: Livro -->
     <article class="card" data-category="livro" data-genero="Filosofia / Sociologia">
-        <img src="{{ url_for('static', filename='css/imagem/img/decolonizacao.jpg') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/decolonizacao.jpg') }}"
             alt="Decolonialidade e Pensamento Afrodiáspórico">
 
         <div class="card-content">
@@ -167,7 +172,7 @@
 
     <!-- CARD 7: Livro -->
     <article class="card" data-category="livro" data-genero="Direito / Sociologia">
-        <img src="{{ url_for('static', filename='css/imagem/img/discriminacao_estetica.png') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/discriminacao_estetica.png') }}"
             alt="Discriminação Estética">
 
         <div class="card-content">
@@ -189,7 +194,7 @@
 
     <!-- CARD 8: Documentário -->   
     <article class="card" data-category="documentario" data-genero="Documentário Educacional">
-        <img src="{{ url_for('static', filename='css/imagem/img/quando_sinto_que_ja_sei.jpg') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/documentarios/quando_sinto_que_ja_sei.jpg') }}"
             alt="Quando Sinto que Já Sei">
 
         <div class="card-content">
@@ -212,7 +217,7 @@
 
     <!-- CARD 9: Livro -->
     <article class="card" data-category="livro" data-genero="História da Educação">
-        <img src="{{ url_for('static', filename='css/imagem/img/educacao_brasileira.jpg') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/educacao_brasileira.jpg') }}"
             alt="Educação Brasileira: Estrutura e Sistema">
 
         <div class="card-content">
@@ -234,7 +239,7 @@
 
     <!-- CARD 10: Livro / Coletânea -->
     <article class="card" data-category="livro" data-genero="Movimentos Sociais / Educação">
-        <img src="{{ url_for('static', filename='css/imagem/img/escolas_em_luta.jpg') }}" alt="Escolas em Luta">
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/escolas_em_luta.jpg') }}" alt="Escolas em Luta">
 
         <div class="card-content">
             <span class="badge genero-badge">Livro / Coletânea</span>
@@ -255,7 +260,7 @@
 
     <!-- CARD 11: Livro -->
     <article class="card" data-category="livro" data-genero="Antropologia / Educação">
-        <img src="{{ url_for('static', filename='css/imagem/img/infancias_negras.jpg') }}" alt="Infâncias Negras">
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/infancias_negras.jpg') }}" alt="Infâncias Negras">
 
         <div class="card-content">
             <span class="badge genero-badge">Livro</span>
@@ -276,7 +281,7 @@
 
     <!-- CARD 12: Livro -->
     <article class="card" data-category="livro" data-genero="Gestão Escolar">
-        <img src="{{ url_for('static', filename='css/imagem/img/gestao.jpg') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/gestao.jpg') }}"
             alt="Gestão Democrática da Escola Pública">
 
         <div class="card-content">
@@ -297,7 +302,7 @@
 
     <!-- CARD 13: Documento / Livro -->
     <article class="card" data-category="livro" data-genero="História da Educação">
-        <img src="{{ url_for('static', filename='css/imagem/img/manifesto.jpg') }}" alt="Manifesto dos Pioneiros">
+        <img src="{{ url_for('static', filename='css/image/img/tipos/documentarios/manifesto.jpg') }}" alt="Manifesto dos Pioneiros">
 
         <div class="card-content">
             <span class="badge genero-badge">Documento / Livro</span>
@@ -317,7 +322,7 @@
 
     <!-- CARD 14: Filme / Documentário -->
     <article class="card" data-category="documentario" data-genero="Documentário Educacional">
-        <img src="{{ url_for('static', filename='css/imagem/img/nunca_me_sonharam.jpg') }}" alt="Nunca Me Sonharam">
+        <img src="{{ url_for('static', filename='css/image/img/tipos/documentarios/nunca_me_sonharam.jpg') }}" alt="Nunca Me Sonharam">
 
         <div class="card-content">
             <span class="badge genero-badge">Filme / Documentário</span>
@@ -339,7 +344,7 @@
 
     <!-- CARD 15: Livro -->
     <article class="card" data-category="livro" data-genero="Educação / Sociologia">
-        <img src="{{ url_for('static', filename='css/imagem/img/o_movimento_negro.jpg') }}" alt="o movimento negro">
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/o_movimento_negro.jpg') }}" alt="o movimento negro">
 
         <div class="card-content">
             <span class="badge genero-badge">Livro</span>
@@ -360,7 +365,7 @@
 
     <!-- CARD 16: Livro -->
     <article class="card" data-category="livro" data-genero="Sociologia / Cultura">
-        <img src="{{ url_for('static', filename='css/imagem/img/o_negro_no_brasil_de_hoje.jpg') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/o_negro_no_brasil_de_hoje.jpg') }}"
             alt="O Negro no Brasil de Hoje">
 
         <div class="card-content">
@@ -382,7 +387,7 @@
 
     <!-- CARD 17: Curta-metragem -->
     <article class="card" data-category="curta-metragem" data-genero="Curta-metragem / Drama">
-        <img src="{{ url_for('static', filename='css/imagem/img/pe_de_chinelo.jpg') }}" alt="Pé de Chinelo">
+        <img src="{{ url_for('static', filename='css/image/img/tipos/filmes/pe_de_chinelo.jpg') }}" alt="Pé de Chinelo">
 
         <div class="card-content">
             <span class="badge genero-badge">Curta-metragem</span>
@@ -403,7 +408,7 @@
 
     <!-- CARD 18: Livro -->
     <article class="card" data-category="livro" data-genero="Psicologia Educacional">
-        <img src="{{ url_for('static', filename='css/imagem/img/a_rebeldia.jpg') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/a_rebeldia.jpg') }}"
             alt="A Produção do Fracasso Escolar">
 
         <div class="card-content">
@@ -425,7 +430,7 @@
 
     <!-- CARD 19: Livro -->
     <article class="card" data-category="livro" data-genero="Pedagogia Crítica">
-        <img src="{{ url_for('static', filename='css/imagem/img/pedagogia_do_oprimido.jpg') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/pedagogia_do_oprimido.jpg') }}"
             alt="Pedagogia do Oprimido">
 
         <div class="card-content">
@@ -447,7 +452,7 @@
 
     <!-- CARD 20: Documentário -->
     <article class="card" data-category="documentario" data-genero="Documentário Educacional">
-        <img src="{{ url_for('static', filename='css/imagem/img/pro_dia_nascer_feliz.jpg') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/documentarios/pro_dia_nascer_feliz.jpg') }}"
             alt="Pro Dia Nascer Feliz">
 
         <div class="card-content">
@@ -470,7 +475,7 @@
 
     <!-- CARD 21: Livro -->
     <article class="card" data-category="livro" data-genero="Psicologia Escolar">
-        <img src="{{ url_for('static', filename='css/imagem/img/psicologia_e_ideologia.jpg') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/psicologia_e_ideologia.jpg') }}"
             alt="Psicologia e Ideologia">
 
         <div class="card-content">
@@ -492,7 +497,7 @@
 
     <!-- CARD 22: Livro -->
     <article class="card" data-category="livro" data-genero="Identidade / Educação">
-    <img src="{{ url_for('static', filename='css/imagem/img/sem_perder_a_raiz.webp') }}" alt="Sem Perder a Raiz">
+    <img src="{{ url_for('static', filename='css/image/img/tipos/livros/sem_perder_a_raiz.webp') }}" alt="Sem Perder a Raiz">
 
         <div class="card-content">
             <span class="badge genero-badge">Livro</span>
@@ -512,7 +517,7 @@
 
     <!-- CARD 23: Livro -->
     <article class="card" data-category="livro" data-genero="Comunicação / Mídia">
-        <img src="{{ url_for('static', filename='css/imagem/img/vozes-negras-2.jpg') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/vozes-negras-2.jpg') }}"
             alt="Vozes Negras na Comunicação II">
 
         <div class="card-content">
@@ -534,7 +539,7 @@
 
     <!-- CARD 24: Livro -->
     <article class="card" data-category="livro" data-genero="Pedagogia Antirracista">
-        <img src="{{ url_for('static', filename='css/imagem/img/superando_o_racismo_na_escola.webp') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/superando_o_racismo_na_escola.webp') }}"
             alt="Superando o Racismo na Escola">
 
         <div class="card-content">
@@ -556,7 +561,7 @@
 
     <!-- CARD 25: Livro -->
     <article class="card" data-category="livro" data-genero="Pedagogia Engajada">
-        <img src="{{ url_for('static', filename='css/imagem/img/ensinando_a_transgredir.webp') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/ensinando_a_transgredir.webp') }}"
             alt="Ensinando a Transgredir">
 
         <div class="card-content">
@@ -578,7 +583,7 @@
 
     <!-- CARD 26: Livro -->
     <article class="card" data-category="livro" data-genero="Sociologia / Feminismo">
-        <img src="{{ url_for('static', filename='css/imagem/img/feminismo.jpg') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/feminismo.jpg') }}"
             alt="Por um Feminismo Afro-latino-americano">
 
         <div class="card-content">
@@ -600,7 +605,7 @@
 
     <!-- CARD 27: Documentário -->
     <article class="card" data-category="documentario" data-genero="Documentário Social">
-        <img src="{{ url_for('static', filename='css/imagem/img/auto_da_resiliencia.jpg') }}" alt="Auto de Resistência">
+        <img src="{{ url_for('static', filename='css/image/img/tipos/documentarios/auto_da_resiliencia.jpg') }}" alt="Auto de Resistência">
 
         <div class="card-content">
             <span class="badge genero-badge">Documentário</span>
@@ -622,7 +627,7 @@
 
     <!-- CARD 28: Livro -->
     <article class="card" data-category="livro" data-genero="Pedagogia Crítica">
-        <img src="{{ url_for('static', filename='css/imagem/img/pedagogia_da_autonomia.webp') }}"
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/pedagogia_da_autonomia.webp') }}"
             alt="Pedagogia da Autonomia">
 
         <div class="card-content">
@@ -644,7 +649,8 @@
 
     <!-- CARD 29: Filme -->
     <article class="card" data-category="filme" data-genero="Biografia / Drama">
-        <img src="{{ url_for('static', filename='css/imagem/img/marighella_filme.jpg') }}" alt="Marighella">
+        <img src="{{ url_for('static', filename='css/image/img/tipos/filmes/marighella_filme.jpg') }}" 
+        alt="Marighella">
 
         <div class="card-content">
             <span class="badge genero-badge">Filme</span>
@@ -665,7 +671,7 @@
 
     <!-- CARD 30: Livro -->
     <article class="card" data-category="livro" data-genero="Filosofia / Sociologia">
-        <img src="{{ url_for('static', filename='css/imagem/img/um_lugar_de_fala.jpg') }}" alt="Lugar de Fala">
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/um_lugar_de_fala.jpg') }}" alt="Lugar de Fala">
 
         <div class="card-content">
             <span class="badge genero-badge">Livro</span>
