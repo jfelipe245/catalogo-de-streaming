@@ -1,9 +1,9 @@
-{% extends "base.html"%}
+{% extends "base.html" %}
 
 {% block title %} tela de login {% endblock title %}
 
 {% block css %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 {% endblock css %}
 
 {% block conteudo %}
@@ -11,11 +11,14 @@
 <main class="login-container">
     <div class="auth-header">
         <img src="{{ url_for('static',filename='css/image/img/tipos/logo_do_site/logo_educacao_negra.png') }}"
-        alt="Roda de Saberes Afro-Brasileira" class="logo-img" width="80" height="80">
+            alt="Roda de Saberes Afro-Brasileira" class="logo-img" width="80" height="80">
     </div>
 
     <form action="{{ url_for('cadastrar_Usuario') }}" method="post" id="login-form">
         <h1>AfroEdu Stream</h1>
+        {% if error %}
+        <p class="menssagem-erro" role="alert">{{ error }}</p>
+        {% endif %}
 
         <div class="campo_nome_usuario">
             <label for="nome-usuario-login">Nome_Usuário:</label>
@@ -69,25 +72,26 @@
                 required>
         </div>
 
-        <div class="campo-senha">
-            <label for="password-login">Senha:</label>
-            <input type="password" id="password-login" name="senha" placeholder="Senha" required>
-            <button type="button" id="toggle-password" class="btn-olho" title="Mostrar/Ocultar Senha">👁️</button>
+        
+        <div class="campo_senha">
+            <label for="senha-login">Senha:</label>
+            <input
+                type="password"
+                id="senha-login"
+                name="senha"
+                placeholder="Crie uma senha"
+                required
+                >
         </div>
 
-        <div class="remenber-forgot">
-            <label for="lembrar-login">
-                <input type="checkbox" id="lembrar-login" name="lembrar"> <span>Lembrar de mim</span>
-            </label>
-            <a href="#">Esqueceu a senha?</a>
-        </div>
 
         <button type="submit" class="btn-cadastrar" id="btn-entrar">
-            Entrar
+            cadastrar
         </button>
 
         <div class="registrar-usuario">
             <p>Ainda não tem uma conta? <a href="{{ url_for('cadastrar_Usuario') }}" id="cadastrar">Cadastre-se</a></p>
+            <p>ja tem uma conta? <a href="{{ url_for('login') }}" id="login">entrar</a></p>
         </div>
     </form>
 </main>
@@ -95,5 +99,5 @@
 {% endblock conteudo %}
 
 {% block js %}
-    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+<script src="{{ url_for('static', filename='css/js/login.js') }}"></script>
 {% endblock js %}

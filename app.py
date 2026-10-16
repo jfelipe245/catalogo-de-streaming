@@ -2,20 +2,32 @@ from flask import Flask, render_template, request, redirect, url_for,session
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 cadastro = "straming educacional.db"
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///streaming educacional.db'
+app.secret_key = 'AfroEdu_RaizesDosSaberes_Conexao_2026!'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////workspaces/catalogo-de-streaming/login.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+
 class Usuario(db.Model):
     __tablename__ = 'Usuarios'
 
     id = db.Column(db.Integer, primary_key=True)
+    nome_usuario = db.Column(db.String(100), nullable=False)
     nome = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), unique=True, nullable=False)
+    idade = db.Column(db.Integer, nullable=False)
+    cpf = db.Column(db.String(14), unique=True, nullable=False)
+    data_nascimento = db.Column(db.String(10), nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    telefone = db.Column(db.String(20))
     senha = db.Column(db.String(100), nullable=False)
+    rua = db.Column(db.String(100), nullable=False)
+    bairro = db.Column(db.String(100), nullable=False)
+    endereco = db.Column(db.String(100), nullable=False)
 
 class Livros(db.Model):
     __tablename__ = 'Livros'
@@ -109,7 +121,8 @@ class saiba_mais(db.Model):
 
 @app.route('/')
 def home():
-    return redirect(url_for('login'))
+    return redirect(url_for('cadastrar_Usuario'))
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -117,36 +130,109 @@ def login():
         email = request.form.get('email')
         senha = request.form.get('senha')
 
-        usuario = Usuario.query.filter_by(email=email, senha=senha).first()
+        usuario = Usuario.query.filter_by(
+            email=email,
+            senha=senha
+        ).first()
 
         if usuario:
             session['usuario_id'] = usuario.id
             session['usuario_nome'] = usuario.nome
             return redirect(url_for('catalogo'))
-        else:
-            return render_template('login.html', error='Email ou senha inválidos.')
-    return render_template('login.html')
+
+        return render_template(
+            'entrar.html',
+            error='E-mail ou senha inválidos.'
+        )
+
+    return render_template('entrar.html')
+
+
 
 @app.route('/cadastrar', methods=['GET', 'POST'])
 def cadastrar_Usuario():
-    if request.method == 'POST':
-        nome = request.form.get('nome')
-        email = request.form.get('email')
-        senha = request.form.get('senha')
+    if request.method == 'GET':
+        return render_template('login.html')
 
-        novo_usuario = Usuario.query.filter_by(email=email).first()
-        if novo_usuario:
-            return render_template('login.html', error='Email já cadastrado.')
+    try:
+        nome_usuario = request.form.get('Nome-Usuario', '').strip()
+        nome = request.form.get('nome', '').strip()
+        idade = request.form.get('idade', '').strip()
+        cpf = request.form.get('cpf', '').strip()
+        data_nascimento = request.form.get('data', '').strip()
+        email = request.form.get('email', '').strip()
+        telefone = request.form.get('telefone', '').strip()
+        senha = request.form.get('senha', '')
+        rua = request.form.get('rua', '').strip()
+        bairro = request.form.get('bairro', '').strip()
+        endereco = request.form.get('endereco', '').strip()
 
-        novo_usuario = Usuario(nome=nome, email=email, senha=senha)
-        try:
-            db.session.add(novo_usuario)
-            db.session.commit()
-            return redirect(url_for('login'))
-        except:
-            db.session.rollback()
-            return render_template('login.html', error='Erro ao cadastrar usuário.')
-    return render_template('login.html')
+        if not all([
+            nome_usuario, nome, idade, cpf, data_nascimento,
+            email, senha, rua, bairro, endereco
+        ]):
+            return render_template(
+                'login.html',
+                error='Preencha todos os campos obrigatorios.'
+            )
+
+        usuario_existente = Usuario.query.filter_by(email=email).first()
+        if usuario_existente:
+            return render_template(
+                'login.html',
+                error='Este e-mail ja esta cadastrado.'
+            )
+
+        cpf_existente = Usuario.query.filter_by(cpf=cpf).first()
+        if cpf_existente:
+            return render_template(
+                'login.html',
+                error='Este CPF ja esta cadastrado.'
+            )
+
+        novo_usuario = Usuario(
+            nome_usuario=nome_usuario,
+            nome=nome,
+            idade=int(idade),
+            cpf=cpf,
+            data_nascimento=data_nascimento,
+            email=email,
+            telefone=telefone,
+            senha=senha,
+            rua=rua,
+            bairro=bairro,
+            endereco=endereco
+        )
+
+        db.session.add(novo_usuario)
+        db.session.commit()
+
+        session['usuario_id'] = novo_usuario.id
+        session['usuario_nome'] = novo_usuario.nome
+        session['usuario_email'] = novo_usuario.email
+
+        return redirect(url_for('catalogo'))
+
+    except ValueError:
+        db.session.rollback()
+        return render_template(
+            'login.html',
+            error='Confira se a idade foi preenchida corretamente.'
+        )
+
+    except Exception:
+        db.session.rollback()
+        app.logger.exception('Erro ao cadastrar usuario')
+        return render_template(
+            'login.html',
+            error='Falha ao salvar o cadastro. Confira o terminal.'
+        )
+
+    return render_template(
+        'login.html',
+        error='O cadastro terminou sem concluir a operacao.'
+    )
+
 
 @app.route('/logout')
 def logout():
@@ -185,9 +271,39 @@ def remover_favoritos():
 
 @app.route('/saiba-mais')
 def saiba_mais():
-    return render_template('Saiba-Mais.html')
+    titulo = request.args.get('titulo', 'Obra')
+    categoria = request.args.get('categoria', '')
+    genero = request.args.get('genero', '')
 
+    return render_template(
+        'Saiba-Mais.html',
+        titulo=titulo,
+        categoria=categoria,
+        genero=genero
+    )
+
+@app.route('/obra')
+def obra():
+    titulo = request.args.get('titulo', 'Obra')
+    autor = request.args.get('autor', '')
+    descricao = request.args.get('descricao', '')
+    categoria = request.args.get('categoria', '')
+    genero = request.args.get('genero', '')
+    imagem = request.args.get('imagem', '')
+    arquivo = request.args.get('arquivo', '')
+    detalhes = request.args.get('detalhes', '')
+
+    return render_template(
+        'obra.html',
+        titulo=titulo,
+        autor=autor,
+        descricao=descricao,
+        categoria=categoria,
+        genero=genero,
+        imagem=imagem,
+        arquivo=arquivo,
+        detalhes=detalhes
+    )
 
 if __name__ == '__main__':
-    app.secret_key = 'sua_chave_secreta_aqui'
     app.run(debug=True)

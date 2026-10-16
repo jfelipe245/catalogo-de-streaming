@@ -158,45 +158,55 @@ img {
 /* =====================================================
    FILTROS
    ===================================================== */
-
-.filtros-container {
-    width: min(100% - 32px, 1200px);
-    margin: 24px auto 16px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 9px;
+.menu-categorias {
+    position: relative;
+    display: inline-block;
 }
 
-.btn-filtro,
-.filter-btn {
-    padding: 8px 14px;
-    border: 1px solid #393440;
-    border-radius: 22px;
-    background: #1c1921;
-    color: #e5e7eb;
-    font-family: inherit;
-    font-size: 0.82rem;
-    font-weight: 600;
+#btn-categorias {
+    background: #27130C;
+    color: #F5E8D3;
+    border: 1px solid #E5A23B;
+    border-radius: 8px;
+    padding: 10px 16px;
     cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
+}
+
+.opcoes-categorias {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 210px;
+    background: #27130C;
+    border: 1px solid #E5A23B;
+    border-radius: 8px;
+    padding: 8px;
+    z-index: 1000;
+}
+
+.opcoes-categorias.aberto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btn-filtro {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    color: #F5E8D3;
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .btn-filtro:hover,
-.filter-btn:hover {
-    border-color: var(--vermelho);
-    background: #302027;
-    color: #fff;
+.btn-filtro.ativo {
+    background: #E5A23B;
+    color: #110B08;
 }
-
-.btn-filtro.ativo,
-.filter-btn.active {
-    background: var(--vermelho);
-    border-color: var(--vermelho);
-    color: #fff;
-}
-
 /* =====================================================
    PESQUISA
    ===================================================== */
@@ -288,53 +298,24 @@ body > header:not(.catalogo-header) h1 {
    GRADE PRINCIPAL DOS 30 CARDS
    IMPORTANTE: O HTML ATUAL USA .grid-cards
    ===================================================== */
-
 .grid-cards,
 .grid-container {
     display: grid;
-
-    /* Largura controlada para os cards não ficarem gigantes */
     grid-template-columns: repeat(10, minmax(0, 1fr));
-
-    width: min(100%);
-    margin: 22px auto 42px;
-    padding: 0;
-    gap: 16px;
-
-    align-items: stretch;
-    justify-content: center;
+    grid-template-rows: repeat(10, auto);
+    align-items: start;
+    justify-items: stretch;
+    gap: 20px;
 }
 
-/* =====================================================
-   CARDS
-   ===================================================== */
-
-.card {
-    display: flex;
-    flex-direction: column;
-
+.grid-cards .card,
+.grid-container .card {
     width: 100%;
     min-width: 0;
-    min-height: 0;
-    height: 100%;
-
-    padding: 12px;
-    overflow: hidden;
-
-    background: var(--card);
-    border: 1px solid var(--borda);
-    border-top: 3px solid var(--dourado);
-    border-radius: 12px;
-
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
-
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease;
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
 }
-
 .card:hover {
     transform: translateY(-4px);
     background: var(--card-hover);
@@ -623,7 +604,7 @@ input:focus-visible {
 @media (max-width: 1100px) {
     .grid-cards,
     .grid-container {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         width: calc(100% - 32px);
         gap: 14px;
     }

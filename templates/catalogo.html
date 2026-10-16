@@ -22,16 +22,28 @@
 </header>
 
 <!-- FILTROS E PESQUISA -->
-<section class="filtros-container">
-    <button type="button" class="btn-filtro ativo" data-filter="todos">Todos</button>
-    <button type="button" class="btn-filtro" data-filter="livro">Livros</button>
-    <button type="button" class="btn-filtro" data-filter="filme">Filmes</button>
-    <button type="button" class="btn-filtro" data-filter="documentario">Documentários</button>
-    <button type="button" class="btn-filtro" data-filter="curta-metragem">Curtas metragens</button>
-    <button type="button" class="btn-filtro" data-filter="series">series</button>
-    <button type="button" class="btn-filtro" data-filter="musica_de_protesto">musica de protesto</button>
+<div class="menu-categorias">
+    <button type="button" class="btn-filtro ativo" id="botao-todos">
+        Todos ▾
+    </button>
+
+    <div class="opcoes-categorias" id="opcoes-categorias">
+        <button type="button" class="btn-filtro" data-filter="todos">Todos</button>
+        <button type="button" class="btn-filtro" data-filter="livro">Livros</button>
+        <button type="button" class="btn-filtro" data-filter="filme">Filmes</button>
+        <button type="button" class="btn-filtro" data-filter="series">Séries</button>
+        <button type="button" class="btn-filtro" data-filter="documentario">Documentários</button>
+        <button type="button" class="btn-filtro" data-filter="curta-metragem">Curtas-metragens</button>
+        <button type="button" class="btn-filtro" data-filter="musica_de_protesto">Músicas de protesto</button>
+    </div>
+</div>
+
+<div class="container-pesquisa">
     <input type="text" id="pesquisa" placeholder="Buscar por título, autor ou gênero...">
-</section>
+    <button id="botao-pesquisa" type="button">
+        Pesquisar
+    </button>
+</div>
 
 
 <!-- GRADE DE CARDS: 30 ELEMENTOS -->
@@ -428,9 +440,12 @@
     </article>
 
     <!-- CARD 19: Livro -->
-    <article class="card" data-category="livro" data-genero="Pedagogia Crítica">
-        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/pedagogia_do_oprimido.jpg') }}"
-            alt="Pedagogia do Oprimido">
+    <article 
+    class="card" 
+    data-category="livro" 
+    data-genero="Pedagogia Crítica"
+    alt="Pedagogia do Oprimido">
+        <img src="{{ url_for('static', filename='css/image/img/tipos/livros/pedagogia_do_oprimido.jpg') }}">
 
         <div class="card-content">
             <span class="badge genero-badge">Livro</span>
@@ -693,5 +708,8 @@
 {% endblock conteudo %}
 
 {% block js %}
-<script src="{{ url_for('static', filename='js/catalogo.js') }}"></script>
+    <script src="{{ url_for('static', filename='css/js/catalogo.js') }}">
+    </script>
+
+    <script>window.url_Saiba_Mais = "{{ url_for('saiba_mais')}}"</script>
 {% endblock js %}
