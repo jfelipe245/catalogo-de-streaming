@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Recursos Educacionais | AfroEdu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='static/css/catalogo.css') }}">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="site-logo">
+            <img src="{{ url_for('static', filename='css/imagem/img/logo_educacao_negra.png') }}" alt="Logo do Catálogo" class="site-logo">    
+        </div>
+
+        <div class="nav-links">
+            <a href="{{ url_for('meus_favoritos') }}" class="nav-links-item">meus favoritos</a>
+            <a href="{{ url_for('logut') }}" class="nav-links-item btn-sair">sair</a>
+        </div>
+
+        <ul class="nav-list">
+            <li><button type="button" class="filter-btn" data-filter="todos">todos</button></li>
+            <li><button type="button" class="filter-btn" data-filter="livro">livro</button></li>
+            <li><button type="button" class="filter-btn" data-filter="filme">filme</button></li>
+            <li><button type="button" class="filter-btn" data-filter="documentario">documentario</button></li>
+            <li><button type="button" class="filter-btn" data-filter="curta-metragem">curta-metragem</button></li>
+            <li><button type="button" class="filter-btn" data-filter="sobre-nosso-site">sobre nosso site</button></li>
+            <li><button type="button" class="filter-btn" data-filter="sobre-mim">sobre mim</button></li>
+            <li><button type="button" class="filter-btn" data-filter="agradecimentos">agradecimentos</button></li>
+        </ul>
+    </nav>
+
+    <header>
+        <strong>Catálogo de livros, filmes e Documentários Educacionais</strong>
+        <h1>Uma seleção diversificada de livros, filmes e séries que abordam temas educacionais, sociais e culturais.</h1>
+        
+        <div class="container-pesquisa">
+            <input type="text" id="pesquisa" placeholder="Pesquisar um livro pelo título ou autor">
+            <button id="botao-pesquisa" type="submit" class="botao-pesquisar">Pesquisar</button>
+        </div>
+    </header>
+    
+    <main class="grid-container" id="card-container">
+
+        <!-- Card 1 -->
+        <article class="card" data-category="documentario" data-genero="Documentário Educacional">
+            <span class="badge">Documentário</span>
+            <strong class="titulo">Pedagogia do Abandono</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Documentário Educacional</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/pedagogia do abandono.jpg') }}" alt="Pedagogia do Abandono">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Produção oficial</p>
+            <p class="descricao"><strong>Descrição:</strong> Crítica aos modelos educacionais autoritários que negligenciam o acolhimento e a realidade dos alunos.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2024 | <strong>Duração:</strong> 02h 30m | <strong>Estado:</strong> Brasil</p>
+            
+            <div class="card-acoes">
+                <button type="button" class="assistir-catalogo-documentario">assistir este Documentário</button>
+                <button type="button" class="adicionar-catalogo-documentario">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-documentario">remover este Documentario</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+        
+        <!-- Card 2 -->
+        <article class="card" data-category="livro" data-genero="Educação / Sociologia">
+            <span class="badge">Livro</span>
+            <strong class="titulo">ABC do Racismo: ou Uma alfabetização ao racismo</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Educação / Sociologia</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/abc.jpg') }}" alt="ABC do Racismo">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Kabengele Munanga</p>
+            <p class="descricao"><strong>Descrição:</strong> Explica de forma acessível os fundamentos históricos e sociais do racismo.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2019 | <strong>Páginas:</strong> 120 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">Ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card" data-category="filme" data-genero="Drama / Ficção">
+            <span class="badge">Filme</span>
+            <strong class="titulo">Cabeça de Negro</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Drama / Ficção</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/cabeca de negro.jpg') }}" alt="Cabeça de Negro">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Julio Bressane</p>
+            <p class="descricao"><strong>Descrição:</strong> Narra a trajetória de um jovem negro periférico, abordando estereótipos e barreiras estruturais.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2007 | <strong>Duração:</strong> 01h 20m | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="assistir-catalogo-Filme">assistir este Filme</button>
+                <button type="button" class="adicionar-catalogo-Filme">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Filme">remover este Filme</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card" data-category="livro" data-genero="Comunicação / Sociologia">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Vozes Negras na Comunicação: Mídia, Racismo e Resistência</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Comunicação / Sociologia</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/vozes-negras-1.jpg') }}" alt="Vozes Negras na Comunicação">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Lúcia Helena Garcia</p>
+            <p class="descricao"><strong>Descrição:</strong> Explora as vozes negras em diferentes contextos midiáticos e suas resistências contra o racismo.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2021 | <strong>Páginas:</strong> 210 | <strong>Estado:</strong> Brasil</p>
+            
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="card" data-category="livro" data-genero="Pedagogia / Educação">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Crítica da Estrutura da Escola</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Pedagogia / Educação</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/critica da escola.jpg') }}" alt="Crítica da Estrutura da Escola">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Vitor Henrique Paro</p>
+            <p class="descricao"><strong>Descrição:</strong> Analisa a organização hierárquica e burocrática da escola tradicional.</p>
+            <p class="detalhes"><strong>Ano:</strong> 1997 | <strong>Páginas:</strong> 180 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este Livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este Livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="card" data-category="livro" data-genero="Filosofia / Sociologia">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Decolonialidade e Pensamento Afrodiáspórico</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Filosofia / Sociologia</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/decolonizacao.jpg') }}" alt="Decolonialidade e Pensamento Afrodiáspórico">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Josene Bernardino Costa et al</p>
+            <p class="descricao"><strong>Descrição:</strong> Traz reflexões sobre a desconstrução de saberes coloniais e valorização dos povos negros.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2018 | <strong>Páginas:</strong> 250 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este Livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 7 -->
+        <article class="card" data-category="livro" data-genero="Direito / Sociologia">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Discriminação Estética</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Direito / Sociologia</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/discriminacao estetica.png') }}" alt="Discriminação Estética">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Adilson José Moreira et al.</p>
+            <p class="descricao"><strong>Descrição:</strong> Aborda como julgamentos baseados na aparência estão ligados ao racismo e reforçam desigualdades.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2022 | <strong>Páginas:</strong> 150 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 8 -->
+        <article class="card" data-category="documentario" data-genero="Documentário Educacional">
+            <span class="badge">Documentário</span>
+            <strong class="titulo">Quando Sinto que Já Sei</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Documentário Educacional</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/quando sinto que ja sei.jpg') }}" alt="Quando Sinto que Já Sei">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Simone André</p>
+            <p class="descricao"><strong>Descrição:</strong> Mostra experiências de educação alternativa no Brasil, criticando o modelo tradicional.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2012 | <strong>Duração:</strong> 01h 15m | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="assistir-catalogo-documentario">assistir este Documentario</button>
+                <button type="button" class="adicionar-catalogo-documentario">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-documentario">remover este Documentario</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 9 -->
+        <article class="card" data-category="livro" data-genero="História da Educação">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Educação Brasileira: Estrutura e Sistema</strong>
+            <p class="detalhes"><strong>Gênero:</strong> História da Educação</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/educacao brasileira.jpg') }}" alt="Educação Brasileira: Estrutura e Sistema">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Dermeval Saviani</p>
+            <p class="descricao"><strong>Descrição:</strong> Obra referência que explica a organização, políticas e desafios do sistema educacional brasileiro.</p>
+            <p class="detalhes"><strong>Ano:</strong> 1996 | <strong>Páginas:</strong> 300 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este Livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este Livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 10 -->
+        <article class="card" data-category="livro" data-genero="Movimentos Sociais / Educação">
+            <span class="badge">Livro / Coletânea</span>
+            <strong class="titulo">Escolas em Luta</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Movimentos Sociais / Educação</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/escolas em luta.jpg') }}" alt="Escolas em Luta">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Vários autores</p>
+            <p class="descricao"><strong>Descrição:</strong> Reúne relatos e análises sobre resistência e lutas coletivas em escolas públicas.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2010 | <strong>Páginas:</strong> 190 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 11 -->
+        <article class="card" data-category="livro" data-genero="Antropologia / Educação">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Infâncias Negras: Vivências e lutas por uma vida justa</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Antropologia / Educação</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/infancias negras.jpg') }}" alt="Infâncias Negras">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Nilma Lino Gomes e Marlene de Araújo</p>
+            <p class="descricao"><strong>Descrição:</strong> Discute a realidade de crianças negras e a importância de uma educação identitária.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2020 | <strong>Páginas:</strong> 220 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 12 -->
+        <article class="card" data-category="livro" data-genero="Gestão Escolar">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Gestão Democrática da Escola Pública</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Gestão Escolar</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/gestao.jpg') }}" alt="Gestão Democrática da Escola Pública">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Vitor Henrique Paro</p>
+            <p class="descricao"><strong>Descrição:</strong> Apresenta princípios e práticas para uma gestão escolar participativa.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2008 | <strong>Páginas:</strong> 160 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 13 -->
+        <article class="card" data-category="livro" data-genero="História da Educação">
+            <span class="badge">Documento / Livro</span>
+            <strong class="titulo">Manifesto dos Pioneiros da Educação Nova</strong>
+            <p class="detalhes"><strong>Gênero:</strong> História da Educação</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/manifesto.jpg') }}" alt="Manifesto dos Pioneiros">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Anísio Teixeira e grupo</p>
+            <p class="descricao"><strong>Descrição:</strong> Marco histórico em defesa de uma escola pública, gratuita e laica.</p>
+            <p class="detalhes"><strong>Ano:</strong> 1932 / 1959 | <strong>Páginas:</strong> 140 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 14 -->
+        <article class="card" data-category="documentario" data-genero="Documentário Educacional">
+            <span class="badge">Filme / Documentário</span>
+            <strong class="titulo">Nunca Me Sonharam</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Documentário Social</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/nunca me sonharam.jpg') }}" alt="Nunca Me Sonharam">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Dandara Mariana</p>
+            <p class="descricao"><strong>Descrição:</strong> Narra trajetórias de mulheres negras que romperam barreiras sociais e educacionais.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2023 | <strong>Duração:</strong> 01h 24m | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="assistir-catalogo-Filme">assistir este Filme</button>
+                <button type="button" class="adicionar-catalogo-Filme">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Filme">remover este Filme</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 15 -->
+        <article class="card" data-category="livro" data-genero="Educação / Sociologia">
+            <span class="badge">Livro</span>
+            <strong class="titulo">O Movimento Negro Educador</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Educação / Sociologia</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/o movimento negro.jpg') }}" alt="o movimento negro">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Nilma Lino Gomes</p>
+            <p class="descricao"><strong>Descrição:</strong> Analisa como o movimento negro é agente fundamental na produção de saberes e igualdade.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2017 | <strong>Páginas:</strong> 240 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 16 -->
+        <article class="card" data-category="livro" data-genero="Sociologia / Cultura">
+            <span class="badge">Livro</span>
+            <strong class="titulo">O Negro no Brasil de Hoje</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Sociologia / Cultura</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/o negro no brasil de hoje.jpg') }}" alt="O Negro no Brasil de Hoje">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Kabengele Munanga, Nilma Lino Gomes</p>
+            <p class="descricao"><strong>Descrição:</strong> Panorama sobre a presença, história e desafios da população negra no país.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2016 | <strong>Páginas:</strong> 280 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 17 -->
+        <article class="card" data-category="curta-metragem" data-genero="Curta-metragem / Drama">
+            <span class="badge">Curta-metragem</span>
+            <strong class="titulo">Pé de Chinelo</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Curta-metragem / Drama</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/pe de chinelo.jpg') }}" alt="Pé de Chinelo">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Cátia Cardoso</p>
+            <p class="descricao"><strong>Descrição:</strong> Conta a história de avó e neto em comunidade periférica, mostrando vínculos como resistência.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2021 | <strong>Duração:</strong> 00h 20m | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="assistir-catalogo-Filme">assistir este Curta</button>
+                <button type="button" class="adicionar-catalogo-Filme">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Filme">remover este Curta</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 18 -->
+        <article class="card" data-category="livro" data-genero="Psicologia Educacional">
+            <span class="badge">Livro</span>
+            <strong class="titulo">A Produção do Fracasso Escolar</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Psicologia Educacional</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/a rebeldia.jpg') }}" alt="A Produção do Fracasso Escolar">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Maria Helena Souza Patto</p>
+            <p class="descricao"><strong>Descrição:</strong> Mostra como o sistema educacional acaba contribuindo para o fracasso escolar.</p>
+            <p class="detalhes"><strong>Ano:</strong> 1990 | <strong>Páginas:</strong> 340 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 19 -->
+        <article class="card" data-category="livro" data-genero="Pedagogia Crítica">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Pedagogia do Oprimido</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Pedagogia Crítica</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/pedagogia do oprimido.jpg') }}" alt="Pedagogia do Oprimido">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Paulo Freire</p>
+            <p class="descricao"><strong>Descrição:</strong> Obra fundamental da educação crítica, defendendo o ensino como emancipação.</p>
+            <p class="detalhes"><strong>Ano:</strong> 1974 | <strong>Páginas:</strong> 216 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 20 -->
+        <article class="card" data-category="documentario" data-genero="Documentário Educacional">
+            <span class="badge">Documentário</span>
+            <strong class="titulo">Pro Dia Nascer Feliz</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Documentário Social</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/pro dia nascer feliz.jpg') }}" alt="Pro Dia Nascer Feliz">
+            <p class="Autor"><strong>Autor/Diretor:</strong> João Jardim e Walter Salles</p>
+            <p class="descricao"><strong>Descrição:</strong> Acompanha a realidade de estudantes de diferentes classes, revelando desigualdades.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2006 | <strong>Duração:</strong> 01h 30m | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="assistir-catalogo-documentario">assistir este Documentario</button>
+                <button type="button" class="adicionar-catalogo-documentario">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-documentario">remover este Documentario</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 21 -->
+        <article class="card" data-category="livro" data-genero="Psicologia Escolar">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Psicologia e Ideologia</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Psicologia Escolar</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/psicologia e ideologia.jpg') }}" alt="Psicologia e Ideologia">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Maria Helena Souza Patto</p>
+            <p class="descricao"><strong>Descrição:</strong> Questiona o uso da psicologia na escola tradicional e a legitimação de desigualdades.</p>
+            <p class="detalhes"><strong>Ano:</strong> 1984 | <strong>Páginas:</strong> 200 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 22 -->
+        <article class="card" data-category="livro" data-genero="Identidade / Educação">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Sem Perder a Raiz</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Identidade / Educação</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/sem perder a raiz.webp') }}" alt="Sem Perder a Raiz">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Nilma Lino Gomes</p>
+            <p class="descricao"><strong>Descrição:</strong> Discute a importância do corpo e do cabelo na identidade negra.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2003 | <strong>Páginas:</strong> 170 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 23 -->
+        <article class="card" data-category="livro" data-genero="Comunicação / Mídia">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Vozes Negras na Comunicação II</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Comunicação / Mídia</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/vozes-negras-2.jpg') }}" alt="Vozes Negras na Comunicação II">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Laura Guimarães Corrêa et al</p>
+            <p class="descricao"><strong>Descrição:</strong> Aprofunda debates sobre mídia, racismo e resistência a partir do segundo volume.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2023 | <strong>Páginas:</strong> 230 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 24 -->
+        <article class="card" data-category="livro" data-genero="Pedagogia Antirracista">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Superando o Racismo na Escola</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Pedagogia Antirracista</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/superando o racismo na escola.webp') }}" alt="Superando o Racismo na Escola">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Kabengele Munanga</p>
+            <p class="descricao"><strong>Descrição:</strong> Propostas práticas para desconstruir estereótipos racistas no cotidiano escolar.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2005 | <strong>Páginas:</strong> 210 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 25 -->
+        <article class="card" data-category="livro" data-genero="Pedagogia Engajada">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Ensinando a Transgredir</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Pedagogia Engajada</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/ensinando a transgredir.webp') }}" alt="Ensinando a Transgredir">
+            <p class="Autor"><strong>Autor/Diretor:</strong> bell hooks</p>
+            <p class="descricao"><strong>Descrição:</strong> Transforma a sala de aula em um espaço de liberdade e transgressão de fronteiras.</p>
+            <p class="detalhes"><strong>Ano:</strong> 1994 | <strong>Páginas:</strong> 288 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 26 -->
+        <article class="card" data-category="livro" data-genero="Sociologia / Feminismo">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Por um Feminismo Afro-latino-americano</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Sociologia / Feminismo</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/feminismo.jpg') }}" alt="Por um Feminismo Afro-latino-americano">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Lélia Gonzalez</p>
+            <p class="descricao"><strong>Descrição:</strong> Reunião de ensaios fundamentais sobre a interseção entre raça, classe e gênero na América Latina.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2020 | <strong>Páginas:</strong> 320 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 27 -->
+        <article class="card" data-category="documentario" data-genero="Documentário Social">
+            <span class="badge">Documentário</span>
+            <strong class="titulo">Auto de Resistência</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Documentário Social</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/auto_da_resiliencia.jpg') }}" alt="Auto de Resistência">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Natasha Neri e Lula Carvalho</p>
+            <p class="descricao"><strong>Descrição:</strong> Retrata a lida de familiares de vítimas de violência estatal na busca por justiça e direitos humanos.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2018 | <strong>Duração:</strong> 01h 44m | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="assistir-catalogo-documentario">assistir este Documentario</button>
+                <button type="button" class="adicionar-catalogo-documentario">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-documentario">remover este Documentario</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 28 -->
+        <article class="card" data-category="livro" data-genero="Pedagogia Crítica">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Pedagogia da Autonomia</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Pedagogia Crítica</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/pedagogia_da_autonomia.webp') }}" alt="Pedagogia da Autonomia">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Paulo Freire</p>
+            <p class="descricao"><strong>Descrição:</strong> Apresenta saberes necessários à prática educativa voltada para a formação de alunos autônomos.</p>
+            <p class="detalhes"><strong>Ano:</strong> 1996 | <strong>Páginas:</strong> 144 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 29 -->
+        <article class="card" data-category="filme" data-genero="Biografia / Drama">
+            <span class="badge">Filme</span>
+            <strong class="titulo">Marighella</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Biografia / Drama</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/marighella_filme.jpg') }}" alt="Marighella">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Lázaro Ramos</p>
+            <p class="descricao"><strong>Descrição:</strong> Narra a história do escritor e político Carlos Marighella na luta contra a ditadura militar no Brasil.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2019 | <strong>Duração:</strong> 02h 35m | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="assistir-catalogo-Filme">assistir este Filme</button>
+                <button type="button" class="adicionar-catalogo-Filme">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Filme">remover este Filme</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+        <!-- Card 30 -->
+        <article class="card" data-category="livro" data-genero="Filosofia / Sociologia">
+            <span class="badge">Livro</span>
+            <strong class="titulo">Lugar de Fala</strong>
+            <p class="detalhes"><strong>Gênero:</strong> Filosofia / Sociologia</p>
+            <img src="{{ url_for('static', filename='css/imagem/img/um_lugar_de_fala.jpg') }}" alt="Lugar de Fala">
+            <p class="Autor"><strong>Autor/Diretor:</strong> Djamila Ribeiro</p>
+            <p class="descricao"><strong>Descrição:</strong> Desmistifica o conceito de lugar de fala e debate a importância da pluralidade de vozes na sociedade.</p>
+            <p class="detalhes"><strong>Ano:</strong> 2017 | <strong>Páginas:</strong> 112 | <strong>Estado:</strong> Brasil</p>
+
+            <div class="card-acoes">
+                <button type="button" class="ler-catalogo-Livro">ler este livro</button>
+                <button type="button" class="adicionar-catalogo-Livro">+ adicionar aos favoritos</button>
+                <button type="button" class="remover-catalogo-Livro">remover este livro</button>
+                <p class="Saiba-Mais"><a href="Saiba-Mais.html"><strong>Saiba Mais</strong></a></p>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p class="visite-loja-entretenimento-academico">&copy; 2023 Catálogo de Entretenimento. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/catalogo.js') }}"></script>
+</body>
+</html>

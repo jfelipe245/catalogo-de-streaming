@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Livros, Filmes e Séries Favoritos - AfroEdu</title>
+    <link rel="stylesheet" href="{{url_for('static' ,filename='css/meus-favoritos.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='css/imagem/img/logo_educacao_negra.png') }}" alt="Logo do Catálogo" class="site-logo">
+            <span class="logo-texto">AfroEdu Favoritos</span>
+        </div>
+        <ul class="nav-list">
+            <li><a href="{{ url_for('catalogo') }}" class="nav-link">Voltar ao Catálogo</a></li>
+            <li><a href="{{ url_for('logout') }}" class="nav-link">Sair</a></li>
+        </ul>
+    </nav>
+
+    <!-- CABEÇALHO DA PÁGINA -->
+    <header class="header-favoritos">
+        <strong>Minha Coleção Pessoal</strong>
+        <h1>Meus Livros, Filmes e Séries Favoritos</h1>
+        <p>Acompanhe e gerencie todos os itens salvos do seu catálogo educacional.</p>
+    </header>
+
+    <!-- ÁREA PRINCIPAL COM A GRADE DE FAVORITOS -->
+    <main class="grid-container" id="container-favoritos">
+        <!-- Os cards favoritados no localStorage serão inseridos dinamicamente aqui pelo JavaScript -->
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2026 Catálogo de Entretenimento. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT DE CONTROLE DOS FAVORITOS -->
+    <script src="{{ url_for('static', filename='js/meus-favoritos.js') }}"></script>
+</body>
+</html>
